@@ -92,9 +92,10 @@ export default function AboutMe() {
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true, margin: '-100px' }}
             >
-              I'm a digital strategist helping small business owners automate their workflows with AI. 
-              With a passion for leveraging emerging technology, I build custom AI solutions that save 
-              time, reduce costs, and unlock new growth opportunities for forward-thinking teams.
+              I'm a junior business analyst in the business process automation industry with a strong foundation in AI. 
+              I help small business owners automate their workflows and optimize operations by leveraging AI-driven solutions. 
+              My approach combines process analysis with emerging technology to deliver measurable improvements in efficiency, 
+              cost reduction, and scalability.
             </motion.p>
 
             <motion.div
@@ -108,13 +109,13 @@ export default function AboutMe() {
                 <p className="text-sm text-gray-400 uppercase tracking-wide font-semibold">
                   Expertise
                 </p>
-                <p className="text-gray-300">AI Automation, Custom Solutions, Business Strategy</p>
+                <p className="text-gray-300">Process Automation, AI Integration, Business Analysis</p>
               </div>
               <div>
                 <p className="text-sm text-gray-400 uppercase tracking-wide font-semibold">
                   Specializes In
                 </p>
-                <p className="text-gray-300">Lead Gen, Sales Automation, Support AI</p>
+                <p className="text-gray-300">Lead Generation, Sales Automation, Support AI</p>
               </div>
             </motion.div>
           </motion.div>

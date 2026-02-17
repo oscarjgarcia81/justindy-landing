@@ -93,9 +93,9 @@ export default function AboutMe() {
               viewport={{ once: true, margin: '-100px' }}
             >
               I'm a junior business analyst in the business process automation industry with a strong foundation in AI. 
-              I help small business owners automate their workflows and optimize operations by leveraging AI-driven solutions. 
-              My approach combines process analysis with emerging technology to deliver measurable improvements in efficiency, 
-              cost reduction, and scalability.
+              I specialize in helping small businesses automate their workflows and helping business owners optimize their operations 
+              and boost their productivity. By leveraging AI-driven solutions and process analysis, I deliver measurable improvements 
+              in efficiency, cost reduction, and scalability.
             </motion.p>
 
             <motion.div

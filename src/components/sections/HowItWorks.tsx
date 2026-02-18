@@ -36,7 +36,7 @@ function StepCard({ step, index }: StepCardProps) {
     >
       {/* Step number circle */}
       <motion.div
-        className="w-16 h-16 rounded-full bg-gray-800 text-white text-2xl font-bold flex items-center justify-center mb-6 mx-auto"
+        className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-gray-800 text-white text-lg sm:text-2xl font-bold flex items-center justify-center mb-4 sm:mb-6 mx-auto"
         whileHover={{ scale: 1.1, opacity: 0.8 }}
         transition={{ type: 'spring', stiffness: 400, damping: 10 }}
       >
@@ -44,9 +44,9 @@ function StepCard({ step, index }: StepCardProps) {
       </motion.div>
 
       {/* Content */}
-      <div className="text-center space-y-3">
+      <div className="text-center space-y-2 sm:space-y-3">
         <motion.h3
-          className="text-xl font-bold text-white"
+          className="text-base sm:text-lg md:text-xl font-bold text-white"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: index * 0.1 + 0.1 }}

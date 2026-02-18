@@ -176,15 +176,15 @@ export default function GetStarted() {
         >
           {/* Hero Section - Compact */}
           <motion.div
-            className="text-center space-y-3 mb-6"
+            className="text-center space-y-2 sm:space-y-3 mb-4 sm:mb-6 px-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h1 className="text-3xl sm:text-4xl font-bold text-white leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
               Let's talk automation
             </h1>
-            <p className="text-sm text-gray-300 max-w-2xl mx-auto">
+            <p className="text-xs sm:text-sm text-gray-300 max-w-2xl mx-auto">
               Schedule a free 15-minute consultation. We'll discuss your workflows and create a custom strategy.
             </p>
           </motion.div>
@@ -193,41 +193,41 @@ export default function GetStarted() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Benefits - Condensed */}
             <motion.div
-              className="lg:col-span-1 space-y-3"
+              className="lg:col-span-1 space-y-2 sm:space-y-3"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <h2 className="text-lg font-bold text-white">Why call?</h2>
-              <div className="space-y-2">
+              <h2 className="text-base sm:text-lg font-bold text-white">Why call?</h2>
+              <div className="space-y-1.5 sm:space-y-2">
                 {benefits.map((benefit, index) => (
                   <motion.div
                     key={benefit}
-                    className="flex items-start gap-2"
+                    className="flex items-start gap-1.5 sm:gap-2"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.4 + index * 0.05 }}
                   >
-                    <CheckCircle className="w-4 h-4 text-white flex-shrink-0 mt-0.5" />
-                    <p className="text-gray-300 text-sm">{benefit}</p>
+                    <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white flex-shrink-0 mt-0.5" />
+                    <p className="text-gray-300 text-xs sm:text-sm">{benefit}</p>
                   </motion.div>
                 ))}
               </div>
 
               {/* Stats - Inline */}
               <motion.div
-                className="pt-3 border-t border-gray-800 space-y-2"
+                className="pt-2 sm:pt-3 border-t border-gray-800 space-y-1.5 sm:space-y-2"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
               >
-                <div className="flex justify-between">
+                <div className="flex justify-between text-sm sm:text-base">
                   <div>
-                    <div className="text-2xl font-bold text-white">100+</div>
+                    <div className="text-xl sm:text-2xl font-bold text-white">100+</div>
                     <p className="text-gray-400 text-xs">Transformed</p>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-white">99.8%</div>
+                    <div className="text-xl sm:text-2xl font-bold text-white">99.8%</div>
                     <p className="text-gray-400 text-xs">Uptime</p>
                   </div>
                 </div>
@@ -236,13 +236,13 @@ export default function GetStarted() {
 
             {/* Form - Compact */}
             <motion.div
-              className="lg:col-span-2 bg-gradient-to-br from-gray-900 to-gray-950 rounded-xl p-6 border border-gray-800"
+              className="lg:col-span-2 bg-gradient-to-br from-gray-900 to-gray-950 rounded-xl p-4 sm:p-5 md:p-6 border border-gray-800"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
               <div className="relative z-10">
-                <h3 className="text-lg font-bold text-white mb-4">Schedule 15-minute consultation</h3>
+                <h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">Schedule 15-minute consultation</h3>
 
                 {/* Success Message */}
                 {successMessage && (
@@ -287,7 +287,7 @@ export default function GetStarted() {
                 )}
 
                 <form onSubmit={handleSubmit} className="space-y-3">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     {/* Name */}
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
@@ -302,7 +302,7 @@ export default function GetStarted() {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className={`w-full px-3 py-2 bg-black/50 border rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-1 transition-colors text-sm ${
+                        className={`w-full px-3 py-2 sm:py-2.5 bg-black/50 border rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-1 transition-colors text-sm ${
                           validationErrors.name
                             ? 'border-red-600 focus:border-red-500 focus:ring-red-600'
                             : 'border-gray-700 focus:border-gray-500 focus:ring-gray-600'
@@ -428,7 +428,7 @@ export default function GetStarted() {
                     <motion.button
                       type="submit"
                       disabled={isLoading}
-                      className="w-full px-4 py-2 rounded-lg bg-white text-black font-bold text-sm hover:bg-gray-100 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+                      className="w-full px-4 py-2.5 sm:py-3 rounded-lg bg-white text-black font-bold text-sm sm:text-base hover:bg-gray-100 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.6 }}

@@ -133,7 +133,7 @@ function CTAColumn() {
           Scale Your Business With AI
         </h1>
         <p className="text-base sm:text-lg md:text-lg lg:text-xl text-gray-300 max-w-md">
-          automate workflows. boost productivity. serve customers 24/7.
+          Automate workflows. Boost productivity. Serve customers 24/7.
         </p>
       </motion.div>
 

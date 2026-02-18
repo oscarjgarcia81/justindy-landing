@@ -108,7 +108,7 @@ export async function POST(request: NextRequest) {
           // Email to admin
           transporter.sendMail({
             from: process.env.EMAIL_USER || 'noreply@justindy.com',
-            to: process.env.ADMIN_EMAIL || 'dyjustin81@gmail.com',
+            to: process.env.ADMIN_EMAIL || 'oscarjgarcia81@gmail.com',
             subject: `New contact form submission from ${name}`,
             html: adminEmailTemplate,
           }),

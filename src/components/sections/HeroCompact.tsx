@@ -92,10 +92,10 @@ function ServicesColumn() {
                 whileHover={{ x: 8, opacity: 0.8 }}
               >
                 <motion.div
-                  className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 md:w-13 md:h-13 lg:w-14 lg:h-14 rounded-lg bg-gray-800 flex items-center justify-center mt-1"
+                  className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 md:w-13 md:h-13 lg:w-14 lg:h-14 rounded-2xl bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center mt-1 border border-blue-500 border-opacity-20"
                   whileHover={{ scale: 1.1 }}
                 >
-                  <Icon className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-white" />
+                  <Icon className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-blue-400" />
                 </motion.div>
                 <div className="flex-1">
                   <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-gray-100 group-hover:text-white transition-colors">
@@ -139,7 +139,7 @@ function CTAColumn() {
 
       <Link href="/get-started" className="w-full max-w-xs px-4 sm:px-0">
         <motion.button
-          className="w-full px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-lg bg-white text-black font-bold text-base sm:text-lg md:text-lg lg:text-xl flex items-center justify-center gap-2 sm:gap-3 hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl"
+          className="w-full px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-2xl bg-white text-black font-bold text-base sm:text-lg md:text-lg lg:text-xl flex items-center justify-center gap-2 sm:gap-3 hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl border-2 border-blue-500 border-opacity-0 hover:border-opacity-100"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.6 }}
@@ -197,10 +197,10 @@ function BenefitsColumn() {
                 whileHover={{ x: -8, opacity: 0.8 }}
               >
                 <motion.div
-                  className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 md:w-13 md:h-13 lg:w-14 lg:h-14 rounded-lg bg-gray-800 flex items-center justify-center mt-1"
+                  className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 md:w-13 md:h-13 lg:w-14 lg:h-14 rounded-2xl bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center mt-1 border border-blue-500 border-opacity-20"
                   whileHover={{ scale: 1.1 }}
                 >
-                  <Icon className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-white" />
+                  <Icon className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-blue-400" />
                 </motion.div>
                 <div className="flex-1">
                   <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-gray-100 group-hover:text-white transition-colors">

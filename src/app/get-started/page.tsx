@@ -236,7 +236,7 @@ export default function GetStarted() {
 
             {/* Form - Compact */}
             <motion.div
-              className="lg:col-span-2 bg-gradient-to-br from-gray-900 to-gray-950 rounded-xl p-4 sm:p-5 md:p-6 border border-gray-800"
+              className="lg:col-span-2 bg-gradient-to-br from-gray-900 to-gray-950 rounded-3xl p-4 sm:p-5 md:p-6 border-2 border-blue-500 border-opacity-20"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -302,10 +302,10 @@ export default function GetStarted() {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className={`w-full px-3 py-2 sm:py-2.5 bg-black/50 border rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-1 transition-colors text-sm ${
+                        className={`w-full px-3 py-2 sm:py-2.5 bg-black/50 border-2 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-1 transition-colors text-sm ${
                           validationErrors.name
                             ? 'border-red-600 focus:border-red-500 focus:ring-red-600'
-                            : 'border-gray-700 focus:border-gray-500 focus:ring-gray-600'
+                            : 'border-blue-500 border-opacity-30 focus:border-opacity-100 focus:ring-blue-600'
                         }`}
                         placeholder="John Doe"
                       />
@@ -328,10 +328,10 @@ export default function GetStarted() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className={`w-full px-3 py-2 bg-black/50 border rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-1 transition-colors text-sm ${
+                        className={`w-full px-3 py-2 bg-black/50 border-2 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-1 transition-colors text-sm ${
                           validationErrors.email
                             ? 'border-red-600 focus:border-red-500 focus:ring-red-600'
-                            : 'border-gray-700 focus:border-gray-500 focus:ring-gray-600'
+                            : 'border-blue-500 border-opacity-30 focus:border-opacity-100 focus:ring-blue-600'
                         }`}
                         placeholder="john@example.com"
                       />
@@ -355,7 +355,7 @@ export default function GetStarted() {
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      className="w-full px-3 py-2 bg-black/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-gray-500 focus:ring-1 focus:ring-gray-600 transition-colors text-sm"
+                      className="w-full px-3 py-2 bg-black/50 border-2 border-blue-500 border-opacity-30 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-opacity-100 focus:ring-1 focus:ring-blue-600 transition-colors text-sm"
                       placeholder="Your company"
                     />
                   </motion.div>
@@ -375,7 +375,7 @@ export default function GetStarted() {
                       value={formData.preferredDate}
                       onChange={handleChange}
                       min={getTodayDate()}
-                      className="w-full px-3 py-2 bg-black/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-gray-500 focus:ring-1 focus:ring-gray-600 transition-colors text-sm"
+                      className="w-full px-3 py-2 bg-black/50 border-2 border-blue-500 border-opacity-30 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-opacity-100 focus:ring-1 focus:ring-blue-600 transition-colors text-sm"
                     />
                   </motion.div>
 
@@ -392,7 +392,7 @@ export default function GetStarted() {
                       name="preferredTime"
                       value={formData.preferredTime}
                       onChange={handleChange}
-                      className="w-full px-3 py-2 bg-black/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-gray-500 focus:ring-1 focus:ring-gray-600 transition-colors text-sm"
+                      className="w-full px-3 py-2 bg-black/50 border-2 border-blue-500 border-opacity-30 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-opacity-100 focus:ring-1 focus:ring-blue-600 transition-colors text-sm"
                     >
                       <option value="">Select a time slot...</option>
                       {timeSlots.map((slot) => (
@@ -417,7 +417,7 @@ export default function GetStarted() {
                       value={formData.message}
                       onChange={handleChange}
                       rows={2}
-                      className="w-full px-3 py-2 bg-black/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-gray-500 focus:ring-1 focus:ring-gray-600 transition-colors resize-none text-sm"
+                      className="w-full px-3 py-2 bg-black/50 border-2 border-blue-500 border-opacity-30 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-opacity-100 focus:ring-1 focus:ring-blue-600 transition-colors resize-none text-sm"
                       placeholder="Tell us about your challenges..."
                     />
                   </motion.div>
@@ -428,7 +428,7 @@ export default function GetStarted() {
                     <motion.button
                       type="submit"
                       disabled={isLoading}
-                      className="w-full px-4 py-2.5 sm:py-3 rounded-lg bg-white text-black font-bold text-sm sm:text-base hover:bg-gray-100 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+                      className="w-full px-4 py-2.5 sm:py-3 rounded-2xl bg-white text-black font-bold text-sm sm:text-base hover:bg-gray-100 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 border-2 border-blue-500 border-opacity-0 hover:border-opacity-100"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.6 }}

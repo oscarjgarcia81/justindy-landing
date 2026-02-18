@@ -10,7 +10,7 @@ const services = [
     id: 1,
     icon: Users,
     title: 'Lead Generation',
-    subtitle: 'Boost productivity and automate lead capture',
+    subtitle: 'AI powered high quality lead capture',
   },
   {
     id: 2,
@@ -76,7 +76,7 @@ function ServicesColumn() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          Services
+          Popular Services
         </motion.h2>
 
         <div className="space-y-4 sm:space-y-6 md:space-y-6 lg:space-y-8">

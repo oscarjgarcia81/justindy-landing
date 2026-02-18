@@ -79,7 +79,7 @@ export default function AboutMe() {
             viewport={{ once: true, margin: '-100px' }}
           >
             <div>
-              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+              <h2 className="text-4xl sm:text-5xl font-light text-white mb-4">
                 About Me
               </h2>
               <div className="w-12 h-1 bg-white rounded-full mb-6" />

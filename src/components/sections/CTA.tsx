@@ -10,7 +10,7 @@ export default function CTA() {
       <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
         {/* Heading */}
         <motion.h2
-          className="text-4xl sm:text-5xl font-bold text-white leading-tight"
+          className="text-4xl sm:text-5xl font-light text-white leading-tight"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -40,7 +40,7 @@ export default function CTA() {
         >
           <Link href="/get-started">
             <motion.button
-              className="px-10 py-4 rounded-lg bg-white text-black font-bold text-lg hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl"
+              className="px-10 py-4 rounded-2xl bg-white text-black font-bold text-lg hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl border-2 border-blue-500 border-opacity-0 hover:border-opacity-100"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

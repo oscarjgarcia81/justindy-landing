@@ -181,7 +181,7 @@ export default function GetStarted() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-light text-white leading-tight">
               Let's talk automation
             </h1>
             <p className="text-xs sm:text-sm text-gray-300 max-w-2xl mx-auto">

@@ -9,8 +9,8 @@ const services = [
   {
     id: 1,
     icon: Users,
-    title: 'Lead Generation',
-    subtitle: 'Generate qualified leads on autopilot',
+    title: 'Boost Productivity',
+    subtitle: 'Automate repetitive tasks and save hours daily',
   },
   {
     id: 2,
@@ -71,12 +71,12 @@ function ServicesColumn() {
     >
       <div>
         <motion.h2
-          className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold text-white mb-6 md:mb-12"
+          className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-light text-white mb-6 md:mb-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          Services
+          Popular Services
         </motion.h2>
 
         <div className="space-y-4 sm:space-y-6 md:space-y-6 lg:space-y-8">
@@ -176,7 +176,7 @@ function BenefitsColumn() {
     >
       <div>
         <motion.h2
-          className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold text-white mb-6 md:mb-12"
+          className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-light text-white mb-6 md:mb-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}

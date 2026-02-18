@@ -60,6 +60,14 @@ export default function Header() {
           >
             Results
           </motion.a>
+          <Link href="/get-started">
+            <motion.a
+              className="text-sm font-medium text-gray-300 hover:text-white transition-colors cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+            >
+              Contact
+            </motion.a>
+          </Link>
         </div>
 
         {/* CTA Button */}

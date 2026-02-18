@@ -94,7 +94,7 @@ export default function HowItWorks() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true, margin: '-100px' }}
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-3">
+          <h2 className="text-4xl sm:text-5xl font-light text-white mb-3">
             How It Works
           </h2>
           <p className="text-gray-400 text-base max-w-2xl mx-auto">

@@ -231,7 +231,7 @@ export default function HeroCompact() {
       <div className="relative z-10 w-full flex items-center justify-center">
         {/* Main 3-column grid - centered both vertically and horizontally */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 lg:gap-16 xl:gap-20 w-full max-w-7xl"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16 lg:gap-24 xl:gap-32 w-full max-w-7xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}

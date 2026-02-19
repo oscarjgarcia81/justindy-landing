@@ -136,7 +136,7 @@ export default function Stats() {
       <div className="relative z-10 max-w-6xl mx-auto">
         {/* Stats Grid */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-8"
+          className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16 lg:gap-20"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}

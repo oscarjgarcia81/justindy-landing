@@ -104,7 +104,7 @@ export default function HowItWorks() {
 
         {/* Steps Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-20 xl:gap-24"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}

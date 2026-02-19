@@ -150,7 +150,19 @@ function CTAColumn() {
           whileTap={{ scale: 0.95 }}
         >
           Get Started Free
-          <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
+          <motion.div
+            animate={{ 
+              y: [0, -4, 0],
+              x: [0, 4, 0]
+            }}
+            transition={{ 
+              duration: 2,
+              repeat: Infinity,
+              ease: 'easeInOut'
+            }}
+          >
+            <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 rotate-45" />
+          </motion.div>
         </motion.button>
       </Link>
 

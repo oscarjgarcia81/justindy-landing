@@ -1,6 +1,5 @@
 import Header from '@/components/Header'
 import HeroCompact from '@/components/sections/HeroCompact'
-import ProfessionalDeployment from '@/components/sections/ProfessionalDeployment'
 import AboutMe from '@/components/sections/AboutMe'
 import HowItWorks from '@/components/sections/HowItWorks'
 import Stats from '@/components/sections/Stats'
@@ -18,7 +17,6 @@ export default function Home() {
       <main className="relative w-full z-20">
         <Header />
         <HeroCompact />
-        <ProfessionalDeployment />
         <HowItWorks />
         <Stats />
         <CTA />

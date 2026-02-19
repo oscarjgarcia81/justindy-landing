@@ -130,10 +130,13 @@ function CTAColumn() {
         transition={{ duration: 0.6, delay: 0.5 }}
       >
         <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
-          Scale Your Business With AI
+          Professional AI Deployment
+          <span className="block text-blue-400 mt-2 md:mt-3 lg:mt-4">
+            For Your Business
+          </span>
         </h1>
         <p className="text-base sm:text-lg md:text-lg lg:text-xl text-gray-300 max-w-md">
-          Automate workflows. Boost productivity. Serve customers 24/7.
+          From consultation to live deployment. I handle the complexity, you get the results.
         </p>
       </motion.div>
 

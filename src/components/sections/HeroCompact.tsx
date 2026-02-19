@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Users, Brain, TrendingUp, Headphones, Lock, Target, DollarSign, MessageCircle, ArrowRight } from 'lucide-react'
+import { Users, Brain, TrendingUp, Headphones, Lock, DollarSign, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 
 // Services data

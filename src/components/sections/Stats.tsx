@@ -1,7 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { motion, useInView } from 'framer-motion'
+import { useEffect, useState, useRef } from 'react'
 
 const stats = [
   {
@@ -44,8 +44,12 @@ interface CounterProps {
 
 function Counter({ targetNumber, suffix, isDecimal, delay }: CounterProps) {
   const [count, setCount] = useState(0)
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-100px' })
 
   useEffect(() => {
+    if (!inView) return
+
     const timer = setTimeout(() => {
       let start = 0
       const increment = targetNumber / 50
@@ -62,14 +66,9 @@ function Counter({ targetNumber, suffix, isDecimal, delay }: CounterProps) {
     }, delay * 1000)
 
     return () => clearTimeout(timer)
-  }, [targetNumber, delay])
+  }, [targetNumber, delay, inView])
 
-  return (
-    <>
-      {isDecimal ? count.toFixed(1) : count}
-      {suffix}
-    </>
-  )
+  return <span ref={ref}>{isDecimal ? count.toFixed(1) : count}{suffix}</span>
 }
 
 interface StatCardProps {

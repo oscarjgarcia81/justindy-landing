@@ -144,8 +144,19 @@ function CTAColumn() {
         <motion.button
           className="w-full px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-2xl bg-white text-black font-bold text-base sm:text-lg md:text-lg lg:text-xl flex items-center justify-center gap-2 sm:gap-3 hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl border-2 border-blue-500 border-opacity-0 hover:border-opacity-100"
           initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
+          animate={{ 
+            opacity: 1,
+            scale: [1, 1.02, 1]
+          }}
+          transition={{ 
+            duration: 0.6, 
+            delay: 0.6,
+            scale: {
+              duration: 2,
+              repeat: Infinity,
+              ease: 'easeInOut'
+            }
+          }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >

@@ -36,9 +36,9 @@ const services = [
 const benefits = [
   {
     id: 1,
-    icon: TrendingUp,
-    title: 'Same-Day, Hassle-Free Setup',
-    subtitle: 'Live and running without the worry—you focus on your business',
+    icon: DollarSign,
+    title: '95% Cheaper Onboarding',
+    subtitle: 'No enterprise pricing, just real results',
   },
   {
     id: 2,
@@ -49,14 +49,14 @@ const benefits = [
   {
     id: 3,
     icon: Brain,
-    title: 'Performance-Optimized Agent',
-    subtitle: 'Built for speed, reliability, and scale',
+    title: 'Performance & Cost Optimized',
+    subtitle: 'Built for speed, reliability, and maximum efficiency',
   },
   {
     id: 4,
-    icon: DollarSign,
-    title: '95% Cheaper Onboarding',
-    subtitle: 'No enterprise pricing, just real results',
+    icon: TrendingUp,
+    title: 'Same-Day, Hassle-Free Setup',
+    subtitle: 'Live and running without the worry—you focus on your business',
   },
 ]
 

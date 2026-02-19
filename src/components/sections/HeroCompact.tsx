@@ -37,8 +37,8 @@ const benefits = [
   {
     id: 1,
     icon: TrendingUp,
-    title: 'Same-Day Setup',
-    subtitle: 'Live and running before end of business',
+    title: 'Same-Day, Hassle-Free Setup',
+    subtitle: 'Live and running without the worry—you focus on your business',
   },
   {
     id: 2,

@@ -36,27 +36,27 @@ const services = [
 const benefits = [
   {
     id: 1,
-    icon: Lock,
-    title: 'Security-focused Installation',
-    subtitle: 'Your data stays safe, your workflows stay secure',
+    icon: TrendingUp,
+    title: 'Same-Day Setup',
+    subtitle: 'Live and running before end of business',
   },
   {
     id: 2,
-    icon: Target,
-    title: 'Highly Customized',
-    subtitle: 'Built exactly for how your business works',
+    icon: Lock,
+    title: 'Secure Installation',
+    subtitle: 'Enterprise-grade security, your data stays yours',
   },
   {
     id: 3,
-    icon: DollarSign,
-    title: 'Cost Optimized',
-    subtitle: '90% cheaper than running it yourself',
+    icon: Brain,
+    title: 'Performance-Optimized Agent',
+    subtitle: 'Built for speed, reliability, and scale',
   },
   {
     id: 4,
-    icon: MessageCircle,
-    title: 'Dedicated Support',
-    subtitle: "I'm here for guidance and changes whenever you need me",
+    icon: DollarSign,
+    title: '95% Cheaper Onboarding',
+    subtitle: 'No enterprise pricing, just real results',
   },
 ]
 

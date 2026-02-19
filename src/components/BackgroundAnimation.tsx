@@ -5,11 +5,11 @@ import { useState, useEffect } from 'react'
 /**
  * BackgroundAnimation Component
  * 
- * Renders a scroll-based gradient fade background with blue theme
- * - Starts: Dark grey with subtle blue at top (hero)
- * - Fades: Gradually transitions through blue tones as you scroll
- * - Ends: Blue-black gradient at bottom
- * - Dynamic color shift based on scroll progress
+ * Renders a scroll-based gradient fade background
+ * - Starts: Dark grey to medium grey gradient at top (hero)
+ * - Fades: Gradually transitions as user scrolls down
+ * - Ends: Pure black at footer
+ * - Seamless transition across the entire page
  */
 export default function BackgroundAnimation() {
   const [mounted, setMounted] = useState(false)
@@ -18,6 +18,8 @@ export default function BackgroundAnimation() {
   // Hydration fix: only render after mount
   useEffect(() => {
     setMounted(true)
+    // Scroll to top on page load/refresh
+    window.scrollTo(0, 0)
   }, [])
 
   // Track scroll position to fade gradient
@@ -38,57 +40,41 @@ export default function BackgroundAnimation() {
     return null
   }
 
-  // Dynamic color interpolation based on scroll progress
-  // Top: Dark grey with blue tint
-  // Middle: Blue-infused greys
-  // Bottom: Blue-black gradient
-  const startColor = '#0f1419'      // Very dark with blue tint
-  const topMidColor = '#1a202c'     // Dark grey-blue
-  const midColor = '#2d3748'        // Medium with blue
-  const bottomMidColor = '#1a1f3a'  // Blue-dark blend
-  const endColor = '#0d1117'        // Blue-black
+  // Interpolate colors based on scroll progress
+  // Start: Dark grey (#1a1a1a) → Medium grey (#404040)
+  // End: Black (#000000)
+  // Smooth fade as user scrolls
+  const startColor = '#1a1a1a'
+  const midColor = '#404040'
+  const endColor = '#000000'
 
-  // Create dynamic gradient that shifts with scroll
-  // Lower half gets more blue as you scroll
-  const blueInfluence = Math.min(scrollProgress * 1.5, 1)
-  
-  // Dynamic color for bottom half
-  const bottomColor = scrollProgress > 0.5 
-    ? `rgba(${13 + 42 * blueInfluence}, ${17 + 38 * blueInfluence}, ${23 + 66 * blueInfluence}, 1)`
-    : endColor
+  // Blend colors based on scroll progress
+  // const bgColor = scrollProgress < 0.5
+  //   ? startColor // Keep initial gradient at top
+  //   : endColor   // Fade to black at bottom
 
   return (
     <>
-      {/* Fixed full-screen background container with scroll-based dynamic gradient */}
+      {/* Fixed full-screen background container with scroll-based fade */}
       <div 
         className="fixed top-0 left-0 z-0 pointer-events-none overflow-hidden" 
         style={{ 
           width: '100vw', 
           height: '100vh',
           inset: 0,
-          background: `linear-gradient(135deg, 
-            ${startColor} 0%, 
-            ${topMidColor} 25%,
-            ${midColor} 50%, 
-            ${bottomMidColor} ${70 + scrollProgress * 20}%,
-            ${bottomColor} 100%)`,
+          background: `linear-gradient(135deg, ${startColor} 0%, ${midColor} 50%, ${endColor} ${Math.max(50, 50 + scrollProgress * 50)}%)`,
           transition: 'background 0.3s ease-out',
         }}
       />
 
-      {/* Dynamic overlay that shifts with scroll - more blue tint at bottom */}
+      {/* Full-page overlay for seamless fade effect */}
       <div
         className="fixed top-0 left-0 z-0 pointer-events-none"
         style={{
           width: '100vw',
           height: '100vh',
           inset: 0,
-          background: `linear-gradient(
-            to bottom, 
-            transparent 0%,
-            rgba(59, 130, 246, ${scrollProgress * 0.15}) ${50 + scrollProgress * 20}%,
-            rgba(29, 31, 59, ${0.4 + scrollProgress * 0.4}) 100%
-          )`,
+          background: `linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, ${scrollProgress * 0.6}) 100%)`,
         }}
       />
 

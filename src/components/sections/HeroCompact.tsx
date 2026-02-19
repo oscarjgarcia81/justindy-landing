@@ -8,27 +8,27 @@ import Link from 'next/link'
 const services = [
   {
     id: 1,
-    icon: Users,
-    title: 'Lead Generation',
-    subtitle: 'AI powered high quality lead capture',
+    icon: Brain,
+    title: 'Personal AI Assistant',
+    subtitle: 'Proactive intelligence—reaches out first, manages emails, calendars, organizes your entire day',
   },
   {
     id: 2,
-    icon: Brain,
-    title: 'Personal AI Assistant',
-    subtitle: 'Your AI handles emails, calendar & meetings—you focus on strategy',
+    icon: Users,
+    title: 'AI-Powered Lead Generation',
+    subtitle: 'Gather high-quality leads 24/7 across every channel',
   },
   {
     id: 3,
-    icon: TrendingUp,
-    title: 'Business Analytics Dashboard',
-    subtitle: 'Automated daily reports so you see what matters',
+    icon: Headphones,
+    title: 'Database Management',
+    subtitle: 'Automated data entry, CRM upkeep, PO generation, and complete data maintenance',
   },
   {
     id: 4,
-    icon: Headphones,
-    title: 'Business Process Automation',
-    subtitle: 'Turn repetitive work into instant automation',
+    icon: TrendingUp,
+    title: 'Business Analytics Dashboard',
+    subtitle: 'Real-time insights on your business, industry trends, and competitive landscape',
   },
 ]
 

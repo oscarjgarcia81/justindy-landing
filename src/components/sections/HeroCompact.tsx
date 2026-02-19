@@ -146,34 +146,32 @@ function CTAColumn() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ 
             opacity: 1,
-            scale: [1, 1.02, 1]
+            scale: 1
           }}
-          transition={{ 
-            duration: 0.6, 
-            delay: 0.6,
-            scale: {
-              duration: 2,
-              repeat: Infinity,
-              ease: 'easeInOut'
-            }
-          }}
+          transition={{ duration: 0.6, delay: 0.6 }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Get Started Free
-          <motion.div
-            animate={{ 
-              y: [0, -4, 0],
-              x: [0, 4, 0]
-            }}
-            transition={{ 
-              duration: 2,
-              repeat: Infinity,
-              ease: 'easeInOut'
-            }}
+          <motion.span
+            animate={{ scale: [1, 1.03, 1] }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            className="flex items-center justify-center gap-2 sm:gap-3 w-full"
           >
-            <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 rotate-45" />
-          </motion.div>
+            Get Started Free
+            <motion.div
+              animate={{ 
+                y: [0, -4, 0],
+                x: [0, -4, 0]
+              }}
+              transition={{ 
+                duration: 2,
+                repeat: Infinity,
+                ease: 'easeInOut'
+              }}
+            >
+              <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 -rotate-45" style={{ scaleX: -1 }} />
+            </motion.div>
+          </motion.span>
         </motion.button>
       </Link>
 

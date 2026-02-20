@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -57,15 +58,16 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <motion.button
-            onClick={() => scrollToSection('#contact')}
-            className="hidden md:block px-5 py-2 rounded-full border border-white/30 text-white text-sm font-medium hover:bg-white hover:text-[#0A0A0A] transition-all duration-300"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Get Started
-          </motion.button>
+          {/* CTA Button - Links to get-started page */}
+          <Link href="/get-started">
+            <motion.button
+              className="hidden md:block px-5 py-2 rounded-full border border-white/30 text-white text-sm font-medium hover:bg-white hover:text-[#0A0A0A] transition-all duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Get Started
+            </motion.button>
+          </Link>
 
           {/* Mobile Menu Button */}
           <button
@@ -101,12 +103,13 @@ export default function Header() {
                 {link.name}
               </button>
             ))}
-            <button
-              onClick={() => scrollToSection('#contact')}
-              className="w-full px-5 py-2 rounded-full border border-white/30 text-white text-sm font-medium hover:bg-white hover:text-[#0A0A0A] transition-all"
-            >
-              Get Started
-            </button>
+            <Link href="/get-started">
+              <button
+                className="w-full px-5 py-2 rounded-full border border-white/30 text-white text-sm font-medium hover:bg-white hover:text-[#0A0A0A] transition-all"
+              >
+                Get Started
+              </button>
+            </Link>
           </div>
         </motion.div>
       )}

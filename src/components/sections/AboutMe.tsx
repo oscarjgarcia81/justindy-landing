@@ -56,39 +56,33 @@ export default function AboutMe() {
             </div>
           </motion.div>
 
-          {/* Contact Card */}
+          {/* Photo Placeholder */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="p-8 rounded-2xl bg-[#1A1A1A] border border-white/5"
+            className="relative"
           >
-            <h3 className="text-white font-semibold text-xl mb-6">Get In Touch</h3>
-            
-            <div className="space-y-4">
-              <div>
-                <p className="text-[#888888] text-sm mb-1">Email</p>
-                <a href="mailto:contact@justindy.com" className="text-white hover:text-gray-300 transition-colors">
-                  contact@justindy.com
-                </a>
+            <div className="aspect-[4/5] rounded-2xl bg-[#1A1A1A] border border-white/5 overflow-hidden relative">
+              {/* Placeholder for Justin's photo */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
+                <div className="w-24 h-24 rounded-full bg-[#2A2A2A] flex items-center justify-center mb-4">
+                  <span className="text-4xl font-bold text-white/40">J</span>
+                </div>
+                <p className="text-[#888888] text-sm mb-2">Photo Placeholder</p>
+                <p className="text-[#666666] text-xs">Replace with your photo</p>
+                <p className="text-[#444444] text-xs mt-4">Recommended: 800x1000px</p>
               </div>
-
-              <div>
-                <p className="text-[#888888] text-sm mb-1">Location</p>
-                <p className="text-white">Chicago, IL</p>
-              </div>
-
-              <div>
-                <p className="text-[#888888] text-sm mb-1">Availability</p>
-                <p className="text-white">Monday - Friday, 9AM - 6PM CST</p>
-              </div>
-            </div>
-
-            <div className="mt-8 pt-6 border-t border-white/5">
-              <p className="text-[#888888] text-sm">
-                Ready to get started? Click the button below to schedule your free consultation.
-              </p>
+              
+              {/* Uncomment and update path when photo is added */}
+              {/* <Image
+                src="/images/justin-photo.jpg"
+                alt="Justin Dy"
+                fill
+                className="object-cover"
+                priority
+              /> */}
             </div>
           </motion.div>
         </div>

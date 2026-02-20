@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Sparkles, ArrowRight, ChevronRight } from 'lucide-react'
+import Link from 'next/link'
 
 export default function Hero() {
   const scrollToSection = (href: string) => {
@@ -68,15 +69,16 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.6 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <motion.button
-            onClick={() => scrollToSection('#contact')}
-            className="group flex items-center gap-2 px-8 py-4 bg-white text-[#0A0A0A] rounded-full font-semibold text-base hover:bg-gray-100 transition-all duration-300"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Get Started Free
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </motion.button>
+          <Link href="/get-started">
+            <motion.button
+              className="group flex items-center gap-2 px-8 py-4 bg-white text-[#0A0A0A] rounded-full font-semibold text-base hover:bg-gray-100 transition-all duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Get Started Free
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </motion.button>
+          </Link>
 
           <motion.button
             onClick={() => scrollToSection('#how-it-works')}

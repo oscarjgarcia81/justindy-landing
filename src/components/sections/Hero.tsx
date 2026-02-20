@@ -1,94 +1,100 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Sparkles, ArrowRight, ChevronRight } from 'lucide-react'
+import { ArrowRight, ChevronRight, Search } from 'lucide-react'
 import Link from 'next/link'
 
 export default function Hero() {
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 px-6 lg:px-8">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A] to-[#0A0A0A]" />
-      
-      {/* Subtle radial gradient behind text */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/[0.02] rounded-full blur-3xl" />
-
-      <div className="relative z-10 max-w-4xl mx-auto text-center">
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8"
-        >
-          <Sparkles className="w-4 h-4 text-white/80" />
-          <span className="text-[#AAAAAA] text-sm font-medium">100+ Businesses Already Scaling</span>
-        </motion.div>
-
-        {/* Main Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-4 tracking-tight"
-        >
-          Professional AI Deployment
-        </motion.h1>
-
-        {/* Subheadline */}
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="text-2xl sm:text-3xl text-[#888888] font-normal mb-6"
-        >
-          For Your Business
-        </motion.p>
-
-        {/* Description */}
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
-          className="text-lg text-[#AAAAAA] max-w-2xl mx-auto mb-10 leading-relaxed"
-        >
-          From consultation to live deployment. I handle the complexity, you get the results.
-        </motion.p>
-
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.6 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <Link href="/get-started">
-            <motion.button
-              className="group flex items-center gap-2 px-8 py-4 bg-white text-[#0A0A0A] rounded-full font-semibold text-base hover:bg-gray-100 transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+      {/* Content */}
+      <div className="relative z-10 max-w-5xl mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left Side - Main Content */}
+          <div className="text-left">
+            {/* Main Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="text-6xl sm:text-7xl lg:text-8xl font-bold text-white mb-8 tracking-tight leading-none"
             >
-              Get Started Free
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
-          </Link>
+              Professional<br />
+              <span className="text-white">AI Deployment.</span>
+            </motion.h1>
 
-          <motion.button
-            onClick={() => scrollToSection('#how-it-works')}
-            className="group flex items-center gap-1 text-white font-medium hover:text-gray-300 transition-colors"
-            whileHover={{ x: 3 }}
+            {/* Search Bar */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="relative mb-6"
+            >
+              <div className="relative flex items-center">
+                <input
+                  type="text"
+                  placeholder="What do you need automated?"
+                  className="w-full px-6 py-4 bg-[#1A1A1A] border border-white/10 rounded-full text-white placeholder-[#666666] focus:outline-none focus:border-white/30 transition-colors pr-12"
+                />
+                <Search className="absolute right-4 w-5 h-5 text-[#666666]" />
+              </div>
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="flex flex-wrap items-center gap-4"
+            >
+              <Link href="/get-started">
+                <motion.button
+                  className="group flex items-center gap-2 px-8 py-3 bg-white text-[#0A0A0A] rounded-full font-semibold text-sm hover:bg-gray-100 transition-all duration-300"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  GET STARTED
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </motion.button>
+              </Link>
+
+              <Link href="#services">
+                <motion.button
+                  className="group flex items-center gap-1 px-6 py-3 border border-white/30 text-white rounded-full font-medium text-sm hover:bg-white/5 transition-all duration-300"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  see more
+                  <ChevronRight className="w-4 h-4" />
+                </motion.button>
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* Right Side - Secondary Content */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="hidden lg:block text-right"
           >
-            Learn more
-            <ChevronRight className="w-5 h-5" />
-          </motion.button>
-        </motion.div>
+            {/* Logo Mark */}
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-white/20 to-white/5 flex items-center justify-center mb-6 ml-auto">
+              <span className="text-3xl font-bold text-white">J</span>
+            </div>
+
+            {/* Secondary Heading */}
+            <h2 className="text-3xl font-bold text-white mb-4">
+              For your business.
+            </h2>
+
+            {/* Description */}
+            <p className="text-[#888888] text-base leading-relaxed max-w-sm ml-auto">
+              From consultation to live deployment. I handle the complexity, 
+              you get the results. Join 100+ businesses already scaling with AI.
+            </p>
+          </motion.div>
+        </div>
       </div>
 
       {/* Scroll indicator */}

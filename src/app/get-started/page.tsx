@@ -4,9 +4,9 @@ import { motion } from 'framer-motion'
 import { ArrowLeft, CheckCircle, X, AlertCircle, Loader } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
+import LiquidGlassBackground from '@/components/LiquidGlassBackground'
 
 export default function GetStarted() {
-  // Get today's date in YYYY-MM-DD format
   const getTodayDate = () => {
     const today = new Date()
     return today.toISOString().split('T')[0]
@@ -26,7 +26,6 @@ export default function GetStarted() {
   const [errorMessage, setErrorMessage] = useState('')
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({})
 
-  // Generate 15-minute time slots from 9:00 AM to 5:00 PM
   const generateTimeSlots = () => {
     const slots = []
     for (let hour = 9; hour < 17; hour++) {
@@ -46,13 +45,11 @@ export default function GetStarted() {
 
   const timeSlots = generateTimeSlots()
 
-  // Validate email format
   const isValidEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     return emailRegex.test(email)
   }
 
-  // Validate form before submission
   const validateForm = (): boolean => {
     const errors: Record<string, string> = {}
 
@@ -76,7 +73,6 @@ export default function GetStarted() {
       ...prev,
       [name]: value,
     }))
-    // Clear validation error for this field when user starts typing
     if (validationErrors[name]) {
       setValidationErrors((prev) => {
         const updated = { ...prev }
@@ -90,7 +86,6 @@ export default function GetStarted() {
     e.preventDefault()
     setErrorMessage('')
 
-    // Validate form
     if (!validateForm()) {
       return
     }
@@ -113,11 +108,9 @@ export default function GetStarted() {
         return
       }
 
-      // Success
-      setSuccessMessage(data.message || 'Thanks! I\'ll be in touch within 24 hours.')
+      setSuccessMessage(data.message || "Thanks! I'll be in touch within 24 hours.")
       setFormData({ name: '', email: '', company: '', preferredDate: getTodayDate(), preferredTime: '', message: '' })
 
-      // Clear success message after 5 seconds
       setTimeout(() => {
         setSuccessMessage('')
       }, 5000)
@@ -137,10 +130,12 @@ export default function GetStarted() {
   ]
 
   return (
-    <main className="w-full bg-black min-h-screen flex flex-col">
+    <main className="w-full min-h-screen flex flex-col bg-[#0A0A0A]">
+      <LiquidGlassBackground />
+      
       {/* Header */}
       <motion.header
-        className="w-full z-50 bg-black/90 backdrop-blur-xl border-b border-gray-800"
+        className="w-full z-50 bg-[#0A0A0A]/80 backdrop-blur-xl border-b border-white/5"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
@@ -157,8 +152,8 @@ export default function GetStarted() {
             </motion.div>
           </Link>
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 bg-gradient-to-br from-gray-700 to-gray-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">J</span>
+            <div className="w-7 h-7 bg-white rounded-lg flex items-center justify-center">
+              <span className="text-[#0A0A0A] font-bold text-sm">J</span>
             </div>
             <span className="font-bold text-sm text-white hidden sm:inline">Justin Dy</span>
           </div>
@@ -167,31 +162,31 @@ export default function GetStarted() {
       </motion.header>
 
       {/* Main Content */}
-      <div className="flex-1 px-4 sm:px-6 lg:px-8 py-6">
+      <div className="flex-1 px-4 sm:px-6 lg:px-8 py-6 relative z-10">
         <motion.div
           className="max-w-5xl mx-auto h-full"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          {/* Hero Section - Compact */}
+          {/* Hero Section */}
           <motion.div
-            className="text-center space-y-2 sm:space-y-3 mb-4 sm:mb-6 px-2"
+            className="text-center space-y-2 sm:space-y-3 mb-8 px-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-light text-white leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
               Let's talk automation
             </h1>
-            <p className="text-xs sm:text-sm text-gray-300 max-w-2xl mx-auto">
+            <p className="text-xs sm:text-sm text-gray-400 max-w-2xl mx-auto">
               Schedule a free 15-minute consultation. We'll discuss your workflows and create a custom strategy.
             </p>
           </motion.div>
 
-          {/* Two Column Layout - Compact */}
+          {/* Two Column Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Benefits - Condensed */}
+            {/* Benefits */}
             <motion.div
               className="lg:col-span-1 space-y-2 sm:space-y-3"
               initial={{ opacity: 0, x: -20 }}
@@ -209,14 +204,13 @@ export default function GetStarted() {
                     transition={{ duration: 0.6, delay: 0.4 + index * 0.05 }}
                   >
                     <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white flex-shrink-0 mt-0.5" />
-                    <p className="text-gray-300 text-xs sm:text-sm">{benefit}</p>
+                    <p className="text-gray-400 text-xs sm:text-sm">{benefit}</p>
                   </motion.div>
                 ))}
               </div>
 
-              {/* Stats - Inline */}
               <motion.div
-                className="pt-2 sm:pt-3 border-t border-gray-800 space-y-1.5 sm:space-y-2"
+                className="pt-2 sm:pt-3 border-t border-white/10 space-y-1.5 sm:space-y-2"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
@@ -224,19 +218,19 @@ export default function GetStarted() {
                 <div className="flex justify-between text-sm sm:text-base">
                   <div>
                     <div className="text-xl sm:text-2xl font-bold text-white">100+</div>
-                    <p className="text-gray-400 text-xs">Transformed</p>
+                    <p className="text-gray-500 text-xs">Transformed</p>
                   </div>
                   <div>
                     <div className="text-xl sm:text-2xl font-bold text-white">99.8%</div>
-                    <p className="text-gray-400 text-xs">Uptime</p>
+                    <p className="text-gray-500 text-xs">Uptime</p>
                   </div>
                 </div>
               </motion.div>
             </motion.div>
 
-            {/* Form - Compact */}
+            {/* Form */}
             <motion.div
-              className="lg:col-span-2 bg-gradient-to-br from-gray-900 to-gray-950 rounded-3xl p-4 sm:p-5 md:p-6 border-2 border-blue-500 border-opacity-20"
+              className="lg:col-span-2 bg-[#111111] rounded-3xl p-4 sm:p-5 md:p-6 border border-white/10"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -244,43 +238,35 @@ export default function GetStarted() {
               <div className="relative z-10">
                 <h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">Schedule 15-minute consultation</h3>
 
-                {/* Success Message */}
                 {successMessage && (
                   <motion.div
-                    className="mb-4 p-3 bg-green-900/30 border border-green-700 rounded-lg flex items-start gap-3"
+                    className="mb-4 p-3 bg-white/10 border border-white/20 rounded-lg flex items-start gap-3"
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                   >
-                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="text-sm text-green-300 font-medium">Success!</p>
-                      <p className="text-xs text-green-300/80">{successMessage}</p>
+                      <p className="text-sm text-white font-medium">Success!</p>
+                      <p className="text-xs text-gray-400">{successMessage}</p>
                     </div>
-                    <button
-                      onClick={() => setSuccessMessage('')}
-                      className="ml-auto flex-shrink-0"
-                    >
-                      <X className="w-4 h-4 text-green-400 hover:text-green-300" />
+                    <button onClick={() => setSuccessMessage('')} className="ml-auto flex-shrink-0">
+                      <X className="w-4 h-4 text-gray-400 hover:text-white" />
                     </button>
                   </motion.div>
                 )}
 
-                {/* Error Message */}
                 {errorMessage && (
                   <motion.div
-                    className="mb-4 p-3 bg-red-900/30 border border-red-700 rounded-lg flex items-start gap-3"
+                    className="mb-4 p-3 bg-red-500/10 border border-red-500/20 rounded-lg flex items-start gap-3"
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                   >
                     <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="text-sm text-red-300 font-medium">Error</p>
+                      <p className="text-sm text-red-400 font-medium">Error</p>
                       <p className="text-xs text-red-300/80">{errorMessage}</p>
                     </div>
-                    <button
-                      onClick={() => setErrorMessage('')}
-                      className="ml-auto flex-shrink-0"
-                    >
+                    <button onClick={() => setErrorMessage('')} className="ml-auto flex-shrink-0">
                       <X className="w-4 h-4 text-red-400 hover:text-red-300" />
                     </button>
                   </motion.div>
@@ -288,13 +274,12 @@ export default function GetStarted() {
 
                 <form onSubmit={handleSubmit} className="space-y-3">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                    {/* Name */}
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.4 }}
                     >
-                      <label className="block text-xs font-medium text-gray-300 mb-1">
+                      <label className="block text-xs font-medium text-gray-400 mb-1">
                         Full Name {validationErrors.name && <span className="text-red-400">*</span>}
                       </label>
                       <input
@@ -302,10 +287,10 @@ export default function GetStarted() {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className={`w-full px-3 py-2 sm:py-2.5 bg-black/50 border-2 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-1 transition-colors text-sm ${
+                        className={`w-full px-3 py-2 sm:py-2.5 bg-[#1A1A1A] border rounded-xl text-white placeholder-gray-600 focus:outline-none focus:border-white/30 transition-colors text-sm ${
                           validationErrors.name
-                            ? 'border-red-600 focus:border-red-500 focus:ring-red-600'
-                            : 'border-blue-500 border-opacity-30 focus:border-opacity-100 focus:ring-blue-600'
+                            ? 'border-red-500 focus:border-red-400'
+                            : 'border-white/10 focus:border-white/30'
                         }`}
                         placeholder="John Doe"
                       />
@@ -314,13 +299,12 @@ export default function GetStarted() {
                       )}
                     </motion.div>
 
-                    {/* Email */}
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.45 }}
                     >
-                      <label className="block text-xs font-medium text-gray-300 mb-1">
+                      <label className="block text-xs font-medium text-gray-400 mb-1">
                         Email {validationErrors.email && <span className="text-red-400">*</span>}
                       </label>
                       <input
@@ -328,10 +312,10 @@ export default function GetStarted() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className={`w-full px-3 py-2 bg-black/50 border-2 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-1 transition-colors text-sm ${
+                        className={`w-full px-3 py-2 bg-[#1A1A1A] border rounded-xl text-white placeholder-gray-600 focus:outline-none focus:border-white/30 transition-colors text-sm ${
                           validationErrors.email
-                            ? 'border-red-600 focus:border-red-500 focus:ring-red-600'
-                            : 'border-blue-500 border-opacity-30 focus:border-opacity-100 focus:ring-blue-600'
+                            ? 'border-red-500 focus:border-red-400'
+                            : 'border-white/10 focus:border-white/30'
                         }`}
                         placeholder="john@example.com"
                       />
@@ -341,13 +325,12 @@ export default function GetStarted() {
                     </motion.div>
                   </div>
 
-                  {/* Company */}
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                   >
-                    <label className="block text-xs font-medium text-gray-300 mb-1">
+                    <label className="block text-xs font-medium text-gray-400 mb-1">
                       Company (optional)
                     </label>
                     <input
@@ -355,18 +338,17 @@ export default function GetStarted() {
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      className="w-full px-3 py-2 bg-black/50 border-2 border-blue-500 border-opacity-30 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-opacity-100 focus:ring-1 focus:ring-blue-600 transition-colors text-sm"
+                      className="w-full px-3 py-2 bg-[#1A1A1A] border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:border-white/30 transition-colors text-sm"
                       placeholder="Your company"
                     />
                   </motion.div>
 
-                  {/* Preferred Meeting Date */}
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.515 }}
                   >
-                    <label className="block text-xs font-medium text-gray-300 mb-1">
+                    <label className="block text-xs font-medium text-gray-400 mb-1">
                       Preferred Meeting Date
                     </label>
                     <input
@@ -375,24 +357,23 @@ export default function GetStarted() {
                       value={formData.preferredDate}
                       onChange={handleChange}
                       min={getTodayDate()}
-                      className="w-full px-3 py-2 bg-black/50 border-2 border-blue-500 border-opacity-30 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-opacity-100 focus:ring-1 focus:ring-blue-600 transition-colors text-sm"
+                      className="w-full px-3 py-2 bg-[#1A1A1A] border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:border-white/30 transition-colors text-sm"
                     />
                   </motion.div>
 
-                  {/* Preferred Meeting Time */}
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.525 }}
                   >
-                    <label className="block text-xs font-medium text-gray-300 mb-1">
+                    <label className="block text-xs font-medium text-gray-400 mb-1">
                       Preferred Meeting Time (optional)
                     </label>
                     <select
                       name="preferredTime"
                       value={formData.preferredTime}
                       onChange={handleChange}
-                      className="w-full px-3 py-2 bg-black/50 border-2 border-blue-500 border-opacity-30 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-opacity-100 focus:ring-1 focus:ring-blue-600 transition-colors text-sm"
+                      className="w-full px-3 py-2 bg-[#1A1A1A] border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:border-white/30 transition-colors text-sm"
                     >
                       <option value="">Select a time slot...</option>
                       {timeSlots.map((slot) => (
@@ -403,13 +384,12 @@ export default function GetStarted() {
                     </select>
                   </motion.div>
 
-                  {/* Message */}
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.55 }}
                   >
-                    <label className="block text-xs font-medium text-gray-300 mb-1">
+                    <label className="block text-xs font-medium text-gray-400 mb-1">
                       What are you looking to automate? (optional)
                     </label>
                     <textarea
@@ -417,18 +397,16 @@ export default function GetStarted() {
                       value={formData.message}
                       onChange={handleChange}
                       rows={2}
-                      className="w-full px-3 py-2 bg-black/50 border-2 border-blue-500 border-opacity-30 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-opacity-100 focus:ring-1 focus:ring-blue-600 transition-colors resize-none text-sm"
+                      className="w-full px-3 py-2 bg-[#1A1A1A] border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:border-white/30 transition-colors resize-none text-sm"
                       placeholder="Tell us about your challenges..."
                     />
                   </motion.div>
 
-                  {/* Buttons Container */}
                   <div className="space-y-2 pt-2">
-                    {/* Submit Button */}
                     <motion.button
                       type="submit"
                       disabled={isLoading}
-                      className="w-full px-4 py-2.5 sm:py-3 rounded-2xl bg-white text-black font-bold text-sm sm:text-base hover:bg-gray-100 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 border-2 border-blue-500 border-opacity-0 hover:border-opacity-100"
+                      className="w-full px-4 py-2.5 sm:py-3 rounded-2xl bg-white text-[#0A0A0A] font-bold text-sm sm:text-base hover:bg-gray-100 disabled:bg-gray-600 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.6 }}
@@ -446,8 +424,7 @@ export default function GetStarted() {
                     </motion.button>
                   </div>
 
-                  {/* Note */}
-                  <p className="text-xs text-gray-500 text-center">
+                  <p className="text-xs text-gray-600 text-center">
                     No credit card required • We respect your privacy
                   </p>
                 </form>

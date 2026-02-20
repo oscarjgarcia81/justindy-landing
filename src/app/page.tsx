@@ -1,6 +1,6 @@
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import LiquidGlassBackground from '@/components/LiquidGlassBackground'
+import LavaLampBackground from '@/components/LavaLampBackground'
 import Hero from '@/components/sections/Hero'
 import Services from '@/components/sections/Services'
 import WhyMe from '@/components/sections/WhyMe'
@@ -11,7 +11,7 @@ import AboutMe from '@/components/sections/AboutMe'
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#0A0A0A]">
-      <LiquidGlassBackground />
+      <LavaLampBackground />
       <Header />
       <Hero />
       <Services />

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { ArrowLeft, CheckCircle, X, AlertCircle, Loader } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
-import LiquidGlassBackground from '@/components/LiquidGlassBackground'
+import LavaLampBackground from '@/components/LavaLampBackground'
 
 export default function GetStarted() {
   const getTodayDate = () => {
@@ -131,7 +131,7 @@ export default function GetStarted() {
 
   return (
     <main className="w-full min-h-screen flex flex-col bg-[#0A0A0A]">
-      <LiquidGlassBackground />
+      <LavaLampBackground />
       
       {/* Header */}
       <motion.header

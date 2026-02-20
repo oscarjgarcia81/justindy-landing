@@ -1,125 +1,97 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Upload } from 'lucide-react'
-import { useState } from 'react'
 
 export default function AboutMe() {
-  const [headshot, setHeadshot] = useState<string | null>(null)
-
-  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
-    if (file) {
-      const reader = new FileReader()
-      reader.onload = (event) => {
-        setHeadshot(event.target?.result as string)
-      }
-      reader.readAsDataURL(file)
-    }
-  }
-
   return (
-    <section id="about-me" className="relative w-full py-16 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden">
-      <div className="relative z-10 max-w-6xl mx-auto">
-        <motion.div
-          className="flex flex-col md:flex-row items-center gap-12"
+    <section id="contact" className="py-24 px-6 lg:px-8 bg-[#0A0A0A] relative overflow-hidden">
+      {/* Decorative J */}
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 text-[400px] font-bold text-white/[0.02] select-none pointer-events-none leading-none">
+        J
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Section Label */}
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-[#888888] text-sm font-medium tracking-widest uppercase mb-12"
         >
-          {/* Photo - Left side on desktop, top on mobile */}
+          About Me
+        </motion.p>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {/* Text Content */}
           <motion.div
-            className="flex-shrink-0 relative"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true, margin: '-100px' }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6"
           >
-            {/* Circular container for headshot */}
-            <div className="relative w-64 h-64 md:w-72 md:h-72">
-              {/* Grey placeholder circle */}
-              <div className="w-full h-full rounded-full bg-gradient-to-br from-gray-600 to-gray-700 flex items-center justify-center overflow-hidden relative group">
-                {headshot ? (
-                  <img
-                    src={headshot}
-                    alt="Headshot"
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <div className="flex flex-col items-center justify-center space-y-2">
-                    <Upload className="w-12 h-12 text-gray-400" />
-                    <span className="text-gray-400 text-sm font-medium">Add Photo</span>
-                  </div>
-                )}
+            <p className="text-[#AAAAAA] text-lg leading-relaxed">
+              I am a junior business analyst in the business process automation industry with a strong foundation in AI. I help small businesses streamline their operations by leveraging AI-driven solutions and process analysis.
+            </p>
 
-                {/* Upload overlay on hover */}
-                <label className="absolute inset-0 rounded-full bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer flex items-center justify-center">
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={handleImageUpload}
-                    className="hidden"
-                  />
-                  <span className="text-white text-sm font-medium">Change Photo</span>
-                </label>
+            <p className="text-[#AAAAAA] text-lg leading-relaxed">
+              My approach combines technical expertise with a deep understanding of business needs, delivering measurable improvements in efficiency and cost reduction for every client I work with.
+            </p>
+
+            <div className="pt-6">
+              <h3 className="text-[#888888] text-sm font-medium tracking-widest uppercase mb-4">
+                Expertise
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {['AI Deployment', 'Process Automation', 'Business Analysis', 'OpenClaw', 'Workflow Optimization'].map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-4 py-2 rounded-full bg-[#1A1A1A] border border-white/5 text-white text-sm"
+                  >
+                    {skill}
+                  </span>
+                ))}
               </div>
-
-              {/* Decorative ring */}
-              <div className="absolute inset-0 rounded-full border-2 border-gray-700 opacity-50" />
             </div>
           </motion.div>
 
-          {/* Bio - Right side on desktop, bottom on mobile */}
+          {/* Contact Card */}
           <motion.div
-            className="flex-1 space-y-6"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true, margin: '-100px' }}
+            className="p-8 rounded-2xl bg-[#1A1A1A] border border-white/5"
           >
-            <div>
-              <h2 className="text-4xl sm:text-5xl font-light text-white mb-4">
-                About Me
-              </h2>
-              <div className="w-12 h-1 bg-white rounded-full mb-6" />
+            <h3 className="text-white font-semibold text-xl mb-6">Get In Touch</h3>
+            
+            <div className="space-y-4">
+              <div>
+                <p className="text-[#888888] text-sm mb-1">Email</p>
+                <a href="mailto:contact@justindy.com" className="text-white hover:text-gray-300 transition-colors">
+                  contact@justindy.com
+                </a>
+              </div>
+
+              <div>
+                <p className="text-[#888888] text-sm mb-1">Location</p>
+                <p className="text-white">Chicago, IL</p>
+              </div>
+
+              <div>
+                <p className="text-[#888888] text-sm mb-1">Availability</p>
+                <p className="text-white">Monday - Friday, 9AM - 6PM CST</p>
+              </div>
             </div>
 
-            <motion.p
-              className="text-lg text-gray-300 leading-relaxed"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true, margin: '-100px' }}
-            >
-              I'm a junior business analyst in the business process automation industry with a strong foundation in AI. 
-              I specialize in helping small businesses automate their workflows and helping business owners optimize their operations 
-              and boost their productivity. By leveraging AI-driven solutions and process analysis, I deliver measurable improvements 
-              in efficiency, cost reduction, and scalability.
-            </motion.p>
-
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4 pt-4"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true, margin: '-100px' }}
-            >
-              <div>
-                <p className="text-sm text-gray-400 uppercase tracking-wide font-semibold">
-                  Expertise
-                </p>
-                <p className="text-gray-300">Process Automation, AI Integration, Business Analysis</p>
-              </div>
-              <div>
-                <p className="text-sm text-gray-400 uppercase tracking-wide font-semibold">
-                  Specializes In
-                </p>
-                <p className="text-gray-300">Lead Generation, Sales Automation, Support AI</p>
-              </div>
-            </motion.div>
+            <div className="mt-8 pt-6 border-t border-white/5">
+              <p className="text-[#888888] text-sm">
+                Ready to get started? Click the button below to schedule your free consultation.
+              </p>
+            </div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

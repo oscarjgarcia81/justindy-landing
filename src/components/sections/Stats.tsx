@@ -1,151 +1,107 @@
 'use client'
 
-import { motion, useInView } from 'framer-motion'
-import { useEffect, useState, useRef } from 'react'
+import { motion, animate } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
 
 const stats = [
   {
-    id: 1,
-    number: 90,
+    value: 90,
     suffix: '%',
     label: 'Cost Reduction',
-    subheadline: 'Monthly savings',
+    sublabel: 'Monthly savings',
   },
   {
-    id: 2,
-    number: 50000,
-    suffix: '+',
+    value: 50,
+    suffix: 'K+',
     label: 'Leads Generated',
-    subheadline: 'Last year',
+    sublabel: 'Last year',
   },
   {
-    id: 3,
-    number: 99.8,
+    value: 99.8,
     suffix: '%',
     label: 'Uptime',
-    isDecimal: true,
-    subheadline: 'Guaranteed',
+    sublabel: 'Guaranteed',
   },
   {
-    id: 4,
-    number: 40,
+    value: 40,
     suffix: 'hrs',
     label: 'Saved/Week',
-    subheadline: 'Per client',
+    sublabel: 'Per client',
   },
 ]
 
-interface CounterProps {
-  targetNumber: number
-  suffix: string
-  isDecimal?: boolean
-  delay: number
-}
-
-function Counter({ targetNumber, suffix, isDecimal, delay }: CounterProps) {
-  const [count, setCount] = useState(0)
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-100px' })
+function AnimatedNumber({ value, suffix }: { value: number; suffix: string }) {
+  const [displayValue, setDisplayValue] = useState(0)
+  const ref = useRef<HTMLSpanElement>(null)
+  const [hasAnimated, setHasAnimated] = useState(false)
 
   useEffect(() => {
-    if (!inView) return
-
-    const timer = setTimeout(() => {
-      let start = 0
-      const increment = targetNumber / 50
-      const interval = setInterval(() => {
-        start += increment
-        if (start >= targetNumber) {
-          setCount(targetNumber)
-          clearInterval(interval)
-        } else {
-          setCount(Math.floor(start))
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true)
+          const controls = animate(0, value, {
+            duration: 2,
+            ease: 'easeOut',
+            onUpdate: (latest) => {
+              setDisplayValue(latest)
+            },
+          })
+          return () => controls.stop()
         }
-      }, 30)
-      return () => clearInterval(interval)
-    }, delay * 1000)
+      },
+      { threshold: 0.5 }
+    )
 
-    return () => clearTimeout(timer)
-  }, [targetNumber, delay, inView])
+    if (ref.current) {
+      observer.observe(ref.current)
+    }
 
-  return <span ref={ref}>{isDecimal ? count.toFixed(1) : count}{suffix}</span>
-}
+    return () => observer.disconnect()
+  }, [value, hasAnimated])
 
-interface StatCardProps {
-  stat: (typeof stats)[0]
-  index: number
-}
+  const formattedValue = value % 1 !== 0 
+    ? displayValue.toFixed(1) 
+    : Math.round(displayValue).toString()
 
-function StatCard({ stat, index }: StatCardProps) {
   return (
-    <motion.div
-      className="text-center space-y-2"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      viewport={{ once: true, margin: '-100px' }}
-      whileHover={{ scale: 1.05, opacity: 0.8 }}
-    >
-      {/* Number */}
-      <motion.div
-        className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white"
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6, delay: index * 0.1 + 0.1 }}
-        viewport={{ once: true, margin: '-100px' }}
-      >
-        <Counter
-          targetNumber={stat.number}
-          suffix={stat.suffix}
-          isDecimal={stat.isDecimal}
-          delay={index * 0.2}
-        />
-      </motion.div>
-
-      {/* Label */}
-      <motion.p
-        className="text-sm sm:text-base text-gray-400 font-medium"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: index * 0.1 + 0.2 }}
-        viewport={{ once: true, margin: '-100px' }}
-      >
-        {stat.label}
-      </motion.p>
-
-      {/* Subheadline */}
-      {stat.subheadline && (
-        <motion.p
-          className="text-xs sm:text-sm text-gray-500 font-light"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
-          viewport={{ once: true, margin: '-100px' }}
-        >
-          {stat.subheadline}
-        </motion.p>
-      )}
-    </motion.div>
+    <span ref={ref}>
+      {formattedValue}{suffix}
+    </span>
   )
 }
 
 export default function Stats() {
   return (
-    <section id="results" className="relative w-full py-16 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden">
-      {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto">
-        {/* Stats Grid */}
-        <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16 lg:gap-20"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true, margin: '-100px' }}
-        >
+    <section id="results" className="py-24 px-6 lg:px-8 bg-[#0A0A0A]">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {stats.map((stat, index) => (
-            <StatCard key={stat.id} stat={stat} index={index} />
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="text-center"
+            >
+              {/* Number */}
+              <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-2">
+                <AnimatedNumber value={stat.value} suffix={stat.suffix} />
+              </div>
+
+              {/* Label */}
+              <p className="text-white font-medium text-base mb-1">
+                {stat.label}
+              </p>
+
+              {/* Sublabel */}
+              <p className="text-[#888888] text-sm">
+                {stat.sublabel}
+              </p>
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   )

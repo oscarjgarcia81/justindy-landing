@@ -9,19 +9,24 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['InterVar', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
-        background: '#ffffff',
-        foreground: '#000000',
-        muted: '#6B7280',
-        accent: '#3B82F6', // Soft blue
-        'accent-light': '#60A5FA', // Lighter blue
-        'accent-dark': '#1E40AF', // Darker blue
+        background: '#0A0A0A',
+        foreground: '#FFFFFF',
+        muted: '#888888',
+        'muted-light': '#AAAAAA',
+        card: '#1A1A1A',
+        'card-hover': '#1E1E1E',
+        border: '#2A2A2A',
+        accent: '#FFFFFF',
       },
       borderRadius: {
         '2xl': '1rem',
         '3xl': '1.5rem',
+      },
+      letterSpacing: {
+        'widest': '0.15em',
       },
     },
   },

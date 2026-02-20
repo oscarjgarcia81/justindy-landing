@@ -1,52 +1,65 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 
 export default function CTA() {
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
-    <section className="relative w-full py-16 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden">
-      {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
-        {/* Heading */}
-        <motion.h2
-          className="text-4xl sm:text-5xl font-light text-white leading-tight"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true, margin: '-100px' }}
-        >
-          Ready to Transform Your Business?
-        </motion.h2>
-
-        {/* Subheading */}
-        <motion.p
-          className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true, margin: '-100px' }}
-        >
-          Join 100+ businesses automating their workflows and scaling with AI.
-        </motion.p>
-
-        {/* CTA */}
+    <section className="py-24 px-6 lg:px-8 bg-[#0A0A0A]">
+      <div className="max-w-4xl mx-auto">
         <motion.div
-          className="flex justify-center pt-4"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="relative rounded-3xl bg-[#111111] border border-white/5 p-12 lg:p-16 text-center overflow-hidden"
         >
-          <Link href="/get-started">
+          {/* Subtle gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] to-transparent pointer-events-none" />
+
+          {/* Content */}
+          <div className="relative z-10">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
+            >
+              Ready to Transform Your Business?
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-[#888888] text-lg max-w-2xl mx-auto mb-8"
+            >
+              Join 100+ businesses automating their workflows and scaling with AI.
+            </motion.p>
+
             <motion.button
-              className="px-10 py-4 rounded-2xl bg-white text-black font-bold text-lg hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl border-2 border-blue-500 border-opacity-0 hover:border-opacity-100"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              onClick={() => scrollToSection('#contact')}
+              className="group inline-flex items-center gap-2 px-8 py-4 bg-white text-[#0A0A0A] rounded-full font-semibold text-base hover:bg-gray-100 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               Get Your Free Consultation
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </motion.button>
-          </Link>
+          </div>
         </motion.div>
       </div>
     </section>

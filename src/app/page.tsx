@@ -1,28 +1,23 @@
 import Header from '@/components/Header'
-import HeroCompact from '@/components/sections/HeroCompact'
-import AboutMe from '@/components/sections/AboutMe'
-import HowItWorks from '@/components/sections/HowItWorks'
+import Footer from '@/components/Footer'
+import Hero from '@/components/sections/Hero'
+import Services from '@/components/sections/Services'
+import WhyMe from '@/components/sections/WhyMe'
 import Stats from '@/components/sections/Stats'
 import CTA from '@/components/sections/CTA'
-import Footer from '@/components/Footer'
-import BackgroundAnimation from '@/components/BackgroundAnimation'
+import AboutMe from '@/components/sections/AboutMe'
 
 export default function Home() {
   return (
-    <>
-      {/* Background animations (fixed, behind all content) */}
-      <BackgroundAnimation />
-
-      {/* Main content (relative, scrolls over background) */}
-      <main className="relative w-full z-20">
-        <Header />
-        <HeroCompact />
-        <HowItWorks />
-        <Stats />
-        <CTA />
-        <AboutMe />
-        <Footer />
-      </main>
-    </>
+    <main className="min-h-screen bg-[#0A0A0A]">
+      <Header />
+      <Hero />
+      <Services />
+      <WhyMe />
+      <Stats />
+      <CTA />
+      <AboutMe />
+      <Footer />
+    </main>
   )
 }

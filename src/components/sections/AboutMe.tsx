@@ -34,7 +34,7 @@ export default function AboutMe() {
             <p className="text-[#AAAAAA] text-lg leading-relaxed">
               I'm an AI Integration Specialist and the founder of an 
               AI Deployment Agency helping businesses automate their operations and scale with intelligent solutions. 
-              I've spent my career in the data and business analytics industry, 
+              I've spent my career in the business and data analytics industry, 
               working with companies like John Deere to implement data-driven solutions.
             </p>
 

@@ -7,7 +7,7 @@ const services = [
   {
     icon: Briefcase,
     title: 'Personal AI Assistant',
-    description: 'Your own AI assistant that handles scheduling, emails, and routine tasks 24/7.',
+    description: 'A proactive AI assistant that anticipates your needs, reaches out with updates, and handles scheduling, emails, and routine tasks 24/7.',
   },
   {
     icon: Target,

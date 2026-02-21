@@ -32,14 +32,14 @@ export default function AboutMe() {
             className="space-y-6"
           >
             <p className="text-[#AAAAAA] text-lg leading-relaxed">
-              I'm an <strong className="text-white">AI Integration Specialist</strong> and the founder of an 
+              I'm an AI Integration Specialist and the founder of an 
               AI Deployment Agency helping businesses automate their operations and scale with intelligent solutions. 
-              I've spent my career in the <strong className="text-white">data and business analytics industry</strong>, 
-              working with companies like <strong className="text-white">John Deere</strong> to implement data-driven solutions.
+              I've spent my career in the data and business analytics industry, 
+              working with companies like John Deere to implement data-driven solutions.
             </p>
 
             <p className="text-[#AAAAAA] text-lg leading-relaxed">
-              With a background in <strong className="text-white">Computer Science and Business Analytics</strong>, 
+              With a background in Computer Science and Business Analytics, 
               I bring a unique blend of technical expertise and business strategy to every project. My focus is on 
               delivering measurable results—reducing costs, eliminating manual work, and helping companies scale faster 
               through AI-driven automation.
@@ -81,21 +81,14 @@ export default function AboutMe() {
                   <div className="w-2 h-2 rounded-full bg-white mt-2 flex-shrink-0" />
                   <div>
                     <p className="text-white font-medium">Business Data Analytics</p>
-                    <p className="text-[#888888] text-sm">Shorr Packaging Corp (Aurora, IL)</p>
+                    <p className="text-[#888888] text-sm">Shorr</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-white mt-2 flex-shrink-0" />
                   <div>
                     <p className="text-white font-medium">Business Analytics</p>
-                    <p className="text-[#888888] text-sm">Apache X Clean</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-white mt-2 flex-shrink-0" />
-                  <div>
-                    <p className="text-white font-medium">Founder</p>
-                    <p className="text-[#888888] text-sm">AI Deployment Agency</p>
+                    <p className="text-[#888888] text-sm">Apache</p>
                   </div>
                 </div>
               </div>

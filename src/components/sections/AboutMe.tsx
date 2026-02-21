@@ -22,14 +22,14 @@ export default function AboutMe() {
           About Me
         </motion.p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="flex flex-col lg:flex-row gap-8 items-start">
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-6"
+            className="space-y-6 flex-1"
           >
             <p className="text-[#AAAAAA] text-lg leading-relaxed">
               I'm an AI Integration Specialist and the founder of an 
@@ -54,7 +54,7 @@ export default function AboutMe() {
                 Expertise
               </h3>
               <div className="flex flex-wrap gap-2">
-                {['AI Deployment', 'Business Automation', 'Process Optimization', 'Data Analytics', 'Competitive Intelligence', 'Lead Generation', 'Workflow Design', 'Business Strategy'].map((skill) => (
+                {['AI Deployment', 'Business Automation', 'Process Optimization', 'Data Analytics', 'Workflow Design', 'Business Strategy'].map((skill) => (
                   <span
                     key={skill}
                     className="px-4 py-2 rounded-full bg-[#1A1A1A] border border-white/5 text-white text-sm"
@@ -101,17 +101,17 @@ export default function AboutMe() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
+            className="relative lg:ml-auto lg:mr-0 mx-auto"
           >
-            <div className="aspect-[4/5] rounded-2xl bg-[#1A1A1A] border border-white/5 overflow-hidden relative">
+            <div className="w-[240px] aspect-[3/4] rounded-2xl bg-[#1A1A1A] border border-white/5 overflow-hidden relative">
               {/* Placeholder for Justin's photo */}
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
-                <div className="w-24 h-24 rounded-full bg-[#2A2A2A] flex items-center justify-center mb-4">
-                  <span className="text-4xl font-bold text-white/40">J</span>
+                <div className="w-16 h-16 rounded-full bg-[#2A2A2A] flex items-center justify-center mb-3">
+                  <span className="text-2xl font-bold text-white/40">J</span>
                 </div>
-                <p className="text-[#888888] text-sm mb-2">Photo Placeholder</p>
-                <p className="text-[#666666] text-xs">Replace with your photo</p>
-                <p className="text-[#444444] text-xs mt-4">Recommended: 800x1000px</p>
+                <p className="text-[#888888] text-xs mb-1">Photo Placeholder</p>
+                <p className="text-[#666666] text-[10px]">Replace with your photo</p>
+                <p className="text-[#444444] text-[10px] mt-2">Recommended: 600x800px</p>
               </div>
               
               {/* Uncomment and update path when photo is added */}

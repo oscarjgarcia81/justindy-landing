@@ -73,21 +73,21 @@ export default function AboutMe() {
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-white mt-2 flex-shrink-0" />
                   <div>
-                    <p className="text-white font-medium">Data Analytics</p>
+                    <p className="text-white font-medium">Data Analyst</p>
                     <p className="text-[#888888] text-sm">John Deere</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-white mt-2 flex-shrink-0" />
                   <div>
-                    <p className="text-white font-medium">Business Data Analytics</p>
+                    <p className="text-white font-medium">Business Data Analyst</p>
                     <p className="text-[#888888] text-sm">Shorr</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-white mt-2 flex-shrink-0" />
                   <div>
-                    <p className="text-white font-medium">Business Analytics</p>
+                    <p className="text-white font-medium">Business Analyst</p>
                     <p className="text-[#888888] text-sm">Apache</p>
                   </div>
                 </div>

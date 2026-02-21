@@ -3,7 +3,6 @@ import Footer from '@/components/Footer'
 import LavaLampBackground from '@/components/LavaLampBackground'
 import Hero from '@/components/sections/Hero'
 import Services from '@/components/sections/Services'
-import DeploymentOptions from '@/components/sections/DeploymentOptions'
 import WhyMe from '@/components/sections/WhyMe'
 import Stats from '@/components/sections/Stats'
 import CTA from '@/components/sections/CTA'
@@ -16,7 +15,6 @@ export default function Home() {
       <Header />
       <Hero />
       <Services />
-      <DeploymentOptions />
       <WhyMe />
       <Stats />
       <CTA />

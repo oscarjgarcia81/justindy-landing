@@ -22,7 +22,7 @@ export default function AboutMe() {
           About Me
         </motion.p>
 
-        <div className="flex flex-col lg:flex-row gap-8 items-start">
+        <div className="flex flex-col lg:flex-row gap-12 items-center">
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -69,7 +69,7 @@ export default function AboutMe() {
               <h3 className="text-[#888888] text-sm font-medium tracking-widest uppercase mb-4">
                 Industry Experience
               </h3>
-              <div className="space-y-3">
+              <div className="flex flex-wrap gap-x-8 gap-y-4">
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-white mt-2 flex-shrink-0" />
                   <div>
@@ -103,7 +103,7 @@ export default function AboutMe() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative lg:ml-auto lg:mr-0 mx-auto"
           >
-            <div className="w-[240px] aspect-[3/4] rounded-2xl bg-[#1A1A1A] border border-white/5 overflow-hidden relative">
+            <div className="w-[320px] aspect-[3/4] rounded-2xl bg-[#1A1A1A] border border-white/5 overflow-hidden relative">
               {/* Placeholder for Justin's photo */}
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
                 <div className="w-16 h-16 rounded-full bg-[#2A2A2A] flex items-center justify-center mb-3">

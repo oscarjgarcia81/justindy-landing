@@ -1,0 +1,153 @@
+{
+  "name": "Lead Gen - Apollo to Smartlead",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 24
+            }
+          ]
+        }
+      },
+      "name": "Daily Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "table": "Lead Gen Campaign",
+        "options": {
+          "filterByFormula": "{Status} = 'To Contact'"
+        }
+      },
+      "name": "Get Approved Leads",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.smartlead.ai/v1/campaigns/YOUR_CAMPAIGN_ID/leads",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "contentType": "json",
+        "body": {
+          "first_name": "={{ $json['Contact Name'].split(' ')[0] }}",
+          "last_name": "={{ $json['Contact Name'].split(' ')[1] || '' }}",
+          "email": "={{ $json['Email'] }}",
+          "company_name": "={{ $json['Company Name'] }}",
+          "custom_fields": {
+            "personalization": "={{ $json['AI Personalization'] }}",
+            "title": "={{ $json['Title'] }}"
+          }
+        }
+      },
+      "name": "Add to Smartlead Campaign",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": "Lead Gen Campaign",
+        "id": "={{ $json.id }}",
+        "options": {
+          "fields": {
+            "Status": "Contacted",
+            "Date Contacted": "={{ $now }}"
+          }
+        }
+      },
+      "name": "Update to Contacted",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 1,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "condition-1",
+              "leftValue": "={{ $json['Email Valid'] }}",
+              "rightValue": "true",
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        }
+      },
+      "name": "Check Email Valid",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [550, 300]
+    }
+  ],
+  "connections": {
+    "Daily Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get Approved Leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Approved Leads": {
+      "main": [
+        [
+          {
+            "node": "Check Email Valid",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Email Valid": {
+      "main": [
+        [
+          {
+            "node": "Add to Smartlead Campaign",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add to Smartlead Campaign": {
+      "main": [
+        [
+          {
+            "node": "Update to Contacted",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": []
+}

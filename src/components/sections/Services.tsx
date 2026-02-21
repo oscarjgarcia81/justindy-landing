@@ -21,8 +21,8 @@ const services = [
   },
   {
     icon: BarChart3,
-    title: 'Business Analytics Dashboard',
-    description: 'Real-time insights and automated reporting to make data-driven decisions.',
+    title: '24/7 Competitor & Industry Surveillance',
+    description: 'Daily intelligence reports on competitor moves and emerging industry trends.',
   },
 ]
 

@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Competitor Intelligence Report - February 20, 2025</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+            background: #ffffff; 
+            color: #000000;
+            line-height: 1.6;
+        }
+        .container { 
+            background: white; 
+            border: 1px solid #000000;
+            padding: 40px; 
+        }
+        .header { 
+            border-bottom: 3px solid #000000; 
+            padding-bottom: 20px; 
+            margin-bottom: 30px; 
+        }
+        .header h1 { 
+            color: #000000; 
+            margin: 0; 
+            font-size: 28px; 
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .header .meta { 
+            color: #333333; 
+            margin-top: 10px; 
+            font-size: 13px; 
+            font-weight: 500;
+        }
+        .section { 
+            margin-bottom: 35px; 
+        }
+        .section h2 { 
+            color: #000000; 
+            font-size: 16px; 
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #000000;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+        .section h3 {
+            color: #000000;
+            font-size: 14px;
+            font-weight: 700;
+            margin: 20px 0 10px 0;
+            text-transform: uppercase;
+        }
+        .alert { 
+            border-left: 4px solid #000000; 
+            padding: 15px 20px; 
+            margin: 15px 0; 
+            background: #f5f5f5;
+            font-weight: 600;
+        }
+        .alert.high { 
+            border-color: #cc0000; 
+            background: #ffeeee;
+            color: #cc0000;
+        }
+        .alert.medium { 
+            border-color: #ffcc00; 
+            background: #fffbe6;
+            color: #997a00;
+        }
+        .alert.low { 
+            border-color: #00aa00; 
+            background: #eeffee;
+            color: #006600;
+        }
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin: 15px 0; 
+            font-size: 13px;
+            border: 1px solid #000000;
+        }
+        th, td { 
+            padding: 12px; 
+            text-align: left; 
+            border-bottom: 1px solid #cccccc;
+            border-right: 1px solid #cccccc;
+        }
+        th { 
+            background: #000000; 
+            font-weight: 700; 
+            color: #ffffff;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+        }
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .opportunity { 
+            color: #00aa00; 
+            font-weight: 700; 
+        }
+        .threat { 
+            color: #cc0000; 
+            font-weight: 700; 
+        }
+        .neutral {
+            color: #666666;
+            font-weight: 600;
+        }
+        .trend { 
+            display: flex; 
+            align-items: flex-start; 
+            gap: 15px; 
+            margin: 12px 0; 
+            padding: 15px; 
+            border: 1px solid #dddddd;
+            background: #fafafa;
+        }
+        .trend strong {
+            color: #000000;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+        .metric { 
+            display: inline-block; 
+            padding: 6px 14px; 
+            background: #000000; 
+            color: #ffffff; 
+            font-size: 11px; 
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 3px;
+        }
+        .competitor-card { 
+            border: 1px solid #000000; 
+            padding: 20px; 
+            margin: 15px 0; 
+            background: #ffffff;
+        }
+        .competitor-card h4 { 
+            margin: 0 0 8px 0; 
+            color: #000000; 
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .competitor-card .location { 
+            color: #555555; 
+            font-size: 12px; 
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .competitor-card p {
+            font-size: 13px;
+            margin: 8px 0;
+        }
+        .footer { 
+            margin-top: 40px; 
+            padding-top: 20px; 
+            border-top: 2px solid #000000; 
+            color: #666666; 
+            font-size: 11px; 
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+        .highlight { 
+            background: #ffffcc; 
+            padding: 2px 6px; 
+            font-weight: 700;
+        }
+        .threat-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .threat-badge.high {
+            background: #cc0000;
+            color: #ffffff;
+        }
+        .threat-badge.medium {
+            background: #ffcc00;
+            color: #000000;
+        }
+        .threat-badge.low {
+            background: #00aa00;
+            color: #ffffff;
+        }
+        ul {
+            margin: 10px 0 10px 20px;
+        }
+        li {
+            margin: 8px 0;
+            font-size: 13px;
+        }
+        ol {
+            margin: 10px 0 10px 20px;
+        }
+        ol li {
+            font-weight: 700;
+            margin: 15px 0;
+        }
+        ol li ul {
+            font-weight: normal;
+            margin-top: 8px;
+        }
+        .divider {
+            border-top: 1px solid #dddddd;
+            margin: 20px 0;
+        }
+        .apache-section {
+            background: #f9f9f9;
+            border: 2px solid #000000;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        .apache-section h3 {
+            border-bottom: 1px solid #000000;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .metric-box {
+            display: inline-block;
+            text-align: center;
+            padding: 15px 20px;
+            margin: 10px 15px 10px 0;
+            border: 1px solid #000000;
+            min-width: 120px;
+        }
+        .metric-box .number {
+            font-size: 28px;
+            font-weight: 700;
+            color: #000000;
+        }
+        .metric-box .label {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #666666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Competitor Intelligence Report</h1>
+            <div class="meta">
+                Industry: Drone Soft-Wash Exterior Cleaning | Region: Midwest/Chicago | Date: February 20, 2025 | Period: Last 24 Hours
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Executive Summary</h2>
+            <div class="alert medium">
+                Threat Level: MEDIUM-HIGH
+            </div>
+            <ul>
+                <li><strong>Major Development:</strong> Drone Wash launched franchise program in January 2025 - potential for rapid national expansion</li>
+                <li><strong>Technology Race:</strong> Lucid Bots (Sherpa Drone) and Apellix leading equipment innovation with US-made solutions</li>
+                <li><strong>Regulatory Advantage:</strong> Helios Visions secured FAA BVLOS waiver - significant competitive moat for remote operations</li>
+                <li><strong>Market Growth:</strong> Industry projected to reach $13.2B by 2030 (16.9% CAGR)</li>
+                <li><strong>Your Media Coverage:</strong> Tech Trends feature highlighting Apache X as industry pioneer continues to circulate</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="apache-section">
+                <h2>Your Company Intelligence - Apache X Clean</h2>
+                <div class="alert low">
+                    Monitoring all mentions, media coverage, and digital footprint for Apache X Clean
+                </div>
+                
+                <h3>Brand Metrics Overview</h3>
+                <div class="metric-box">
+                    <div class="number">1</div>
+                    <div class="label">Media Features</div>
+                </div>
+                <div class="metric-box">
+                    <div class="number">IL</div>
+                    <div class="label">1st in State</div>
+                </div>
+                <div class="metric-box">
+                    <div class="number">Active</div>
+                    <div class="label">Website Status</div>
+                </div>
+
+                <h3>Media & PR Activity</h3>
+                <div class="trend">
+                    <span>📺</span>
+                    <div>
+                        <strong>Tech Trends Feature</strong><br>
+                        <span class="highlight">ONGOING COVERAGE</span> - Tech Trends feature (July 2025) continues to be referenced on your website and in industry discussions. Quote featured: "Apache-X, a company who has pioneered the use of industrial drones to clean the exteriors and windows of buildings."<br>
+                        <em>Source: YouTube/Tech Trends - July 13, 2025</em>
+                    </div>
+                </div>
+
+                <h3>Company Positioning</h3>
+                <ul>
+                    <li><strong>First-Mover Advantage:</strong> "1st company in Illinois to own and operate Apache X cleaning drones"</li>
+                    <li><strong>Value Proposition:</strong> Cost reduction vs traditional exterior cleaning methods</li>
+                    <li><strong>Safety Focus:</strong> Eliminates need for lifts/scaffolds - reduced liability</li>
+                    <li><strong>Service Coverage:</strong> Power washing, soft wash, all exterior building surfaces</li>
+                </ul>
+
+                <h3>Digital Presence Status</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Platform</th>
+                            <th>Status</th>
+                            <th>Last Activity</th>
+                            <th>Recommendation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Website</td>
+                            <td><span class="opportunity">ACTIVE</span></td>
+                            <td>August 2025</td>
+                            <td>Current and maintained</td>
+                        </tr>
+                        <tr>
+                            <td>LinkedIn</td>
+                            <td><span class="neutral">NOT MONITORED</span></td>
+                            <td>Unknown</td>
+                            <td>Add company page for B2B visibility</td>
+                        </tr>
+                        <tr>
+                            <td>Google Reviews</td>
+                            <td><span class="neutral">NOT FOUND</span></td>
+                            <td>N/A</td>
+                            <td>Claim business profile, solicit reviews</td>
+                        </tr>
+                        <tr>
+                            <td>Industry Directories</td>
+                            <td><span class="neutral">UNKNOWN</span></td>
+                            <td>N/A</td>
+                            <td>List on commercial cleaning directories</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Competitive Position Analysis</h3>
+                <p><strong>Strengths:</strong></p>
+                <ul>
+                    <li><span class="opportunity">First in Illinois</span> with Apache X drone technology</li>
+                    <li><span class="opportunity">Media recognition</span> as industry pioneer</li>
+                    <li><span class="opportunity">Cost advantage</span> positioning vs traditional methods</li>
+                    <li><span class="opportunity">Safety value prop</span> appeals to risk-conscious facility managers</li>
+                </ul>
+
+                <p><strong>Areas for Enhancement:</strong></p>
+                <ul>
+                    <li><span class="threat">Social media presence</span> not visible - competitors gaining share of voice</li>
+                    <li><span class="threat">FAA BVLOS waiver</span> not mentioned - Helios Visions has regulatory edge</li>
+                    <li><span class="threat">Franchise model</span> not in place - Drone Wash scaling faster</li>
+                    <li><span class="neutral">Client testimonials/case studies</span> not prominently featured</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Competitor Activity</h2>
+            
+            <div class="competitor-card">
+                <h4>Helios Visions</h4>
+                <div class="location">📍 Chicago, IL | 🌐 heliosvisions.com</div>
+                <p><strong>Recent Activity:</strong> <span class="highlight">Secured FAA BVLOS Waiver</span> - Enables remote drone operations beyond visual line of sight nationwide. Published guide for facility managers on drone cleaning adoption (Nov 2024).</p>
+                <p>Threat Level: <span class="threat-badge high">HIGH</span> - Regulatory advantage + local presence</p>
+            </div>
+
+            <div class="competitor-card">
+                <h4>Right Way Power Washing</h4>
+                <div class="location">📍 Chicago, IL | 🌐 rightwaypowerwashing.com</div>
+                <p><strong>Recent Activity:</strong> <span class="highlight">Actively Hiring</span> - Website banner indicates rapid growth and expansion across Chicago suburbs.</p>
+                <p>Threat Level: <span class="threat-badge medium">MEDIUM</span> - Established local player scaling operations</p>
+            </div>
+
+            <div class="competitor-card">
+                <h4>Drone Wash (DRONEWASH+)</h4>
+                <div class="location">🌐 trydronewash.com</div>
+                <p><strong>Recent Activity:</strong> <span class="highlight">Launched Franchise Program (Jan 2025)</span> - Offering franchise opportunities with financing and marketing support. Partnerships with Lucid Bots and Apellix.</p>
+                <p>Threat Level: <span class="threat-badge high">HIGH</span> - Rapid scaling model + tech partnerships</p>
+            </div>
+
+            <div class="competitor-card">
+                <h4>McCahill Painting</h4>
+                <div class="location">📍 Chicago, IL | 🌐 mccahillpainting.com</div>
+                <p><strong>Recent Activity:</strong> Drone power washing services added to traditional painting business.</p>
+                <p>Threat Level: <span class="threat-badge low">LOW</span> - Secondary service offering</p>
+            </div>
+
+            <div class="competitor-card">
+                <h4>Lucid Bots (Equipment Manufacturer)</h4>
+                <div class="location">🌐 lucidbots.com</div>
+                <p><strong>Recent Activity:</strong> <span class="highlight">$9M Funding (May 2024)</span> - Sherpa Drone sets record: 1+ hour continuous cleaning at 3,500 PSI.</p>
+                <p>Impact: Equipment supplier setting technology standards</p>
+            </div>
+
+            <div class="divider"></div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Company</th>
+                        <th>Location</th>
+                        <th>Key Development</th>
+                        <th>Impact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Wash Drones</td>
+                        <td>National</td>
+                        <td>Service marketplace platform</td>
+                        <td><span class="neutral">Low - Platform play</span></td>
+                    </tr>
+                    <tr>
+                        <td>Window Hero</td>
+                        <td>National</td>
+                        <td>Soft wash specialization</td>
+                        <td><span class="neutral">Medium - Certified pilots</span></td>
+                    </tr>
+                    <tr>
+                        <td>Drone Clean USA</td>
+                        <td>National</td>
+                        <td>Veteran-owned positioning</td>
+                        <td><span class="neutral">Low - Differentiation</span></td>
+                    </tr>
+                    <tr>
+                        <td>Drone Force USA</td>
+                        <td>National</td>
+                        <td>FAA-certified positioning</td>
+                        <td><span class="neutral">Low - Table stakes</span></td>
+                    </tr>
+                    <tr>
+                        <td>SkyWash Drones</td>
+                        <td>National</td>
+                        <td>Window cleaning focus</td>
+                        <td><span class="neutral">Low - Niche player</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>New Entrants & Emerging Threats</h2>
+            <p><em>Companies newly identified or announcing potentially threatening developments:</em></p>
+            
+            <div class="trend">
+                <span>🆕</span>
+                <div>
+                    <strong>ZenaTech (NASDAQ: ZENA)</strong><br>
+                    Advancing autonomous AI drone power wash platform. Expanding Dubai Drone as a Service presence. Using LiDAR scanning + AI software for optimized wash planning.<br>
+                    <span class="threat">THREAT LEVEL: HIGH</span> - Public company with significant R&D budget. AI automation could disrupt pricing.<br>
+                    <em>Source: Globe Newswire - February 17, 2026</em>
+                </div>
+            </div>
+
+            <div class="trend">
+                <span>🆕</span>
+                <div>
+                    <strong>Drone Powered Solutions (New Orleans/Miami)</strong><br>
+                    Kim Dixon and Mullady Voelker launched in 2024, hiring pilots to fly drones for high-rise power washing.<br>
+                    <span class="neutral">THREAT LEVEL: MEDIUM</span> - Regional expansion into Midwest possible.<br>
+                    <em>Source: NOLA.com - July 30, 2025</em>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Industry Trends & Developments</h2>
+            
+            <div class="trend">
+                <span>📊</span>
+                <div>
+                    <strong>Explosive Market Growth</strong><br>
+                    Drone cleaning service market projected to hit <strong>$13.2 billion by 2030</strong> (16.9% CAGR). Wash drone market growing at 10.5% CAGR (2024-2030).
+                </div>
+            </div>
+
+            <div class="trend">
+                <span>🏢</span>
+                <div>
+                    <strong>Franchise Model Emergence</strong><br>
+                    Multiple players launching franchise programs in 2025. This will rapidly expand national footprint of established brands.
+                </div>
+            </div>
+
+            <div class="trend">
+                <span>🤖</span>
+                <div>
+                    <strong>AI & Autonomous Integration</strong><br>
+                    Industry forecasting autonomous cleaning drones by end of 2025. ZenaTech developing LiDAR + AI wash planning.
+                </div>
+            </div>
+
+            <div class="trend">
+                <span>⚖️</span>
+                <div>
+                    <strong>Regulatory Evolution</strong><br>
+                    FAA BVLOS waivers becoming competitive differentiator. Remote operations capability = scalability advantage.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Opportunities & Threats</h2>
+            
+            <h3>Opportunities</h3>
+            <ul>
+                <li><span class="opportunity">Regulatory First-Mover:</span> Pursue FAA BVLOS waiver before other Chicago competitors (Helios Visions currently only one)</li>
+                <li><span class="opportunity">Leverage Media Coverage:</span> Tech Trends feature positions you as industry pioneer - amplify this in marketing</li>
+                <li><span class="opportunity">Social Media Gap:</span> Most competitors have weak social presence - opportunity to own share of voice</li>
+                <li><span class="opportunity">Case Studies:</span> Document cost savings and safety improvements to create compelling sales materials</li>
+                <li><span class="opportunity">Industry Partnerships:</span> Partner with Lucid Bots or Apellix for equipment advantages</li>
+            </ul>
+            
+            <h3>Threats</h3>
+            <ul>
+                <li><span class="threat">Helios Visions BVLOS Advantage:</span> Can operate remotely at scale - difficult to compete without similar waiver</li>
+                <li><span class="threat">Franchise Expansion:</span> Drone Wash franchise program could saturate Chicago market rapidly</li>
+                <li><span class="threat">ZenaTech AI Development:</span> Autonomous cleaning with LiDAR planning could disrupt pricing models</li>
+                <li><span class="threat">Right Way Growth:</span> Local competitor actively hiring and expanding</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Recommended Actions</h2>
+            <ol>
+                <li><strong>Immediate (This Week):</strong>
+                    <ul>
+                        <li>Research FAA BVLOS waiver requirements and begin application process</li>
+                        <li>Create LinkedIn company page for Apache X Clean</li>
+                        <li>Claim Google Business Profile and solicit initial reviews</li>
+                    </ul>
+                </li>
+                <li><strong>Short-term (This Month):</strong>
+                    <ul>
+                        <li>Amplify Tech Trends media coverage - create blog post, social content</li>
+                        <li>Develop 2-3 client case studies documenting ROI and safety benefits</li>
+                        <li>Schedule demo with Lucid Bots for equipment evaluation</li>
+                    </ul>
+                </li>
+                <li><strong>Strategic (This Quarter):</strong>
+                    <ul>
+                        <li>Evaluate franchise model feasibility for Midwest expansion</li>
+                        <li>Build formal partner program for commercial real estate firms</li>
+                        <li>Develop "1st in Illinois" marketing campaign leveraging positioning</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2>Market Intelligence Metrics</h2>
+            <div>
+                <span class="metric">10 Competitors Tracked</span>
+                <span class="metric">3 Local (Chicago)</span>
+                <span class="metric">2 New Entrants Flagged</span>
+                <span class="metric">1 BVLOS Waiver</span>
+                <span class="metric">$13.2B Market by 2030</span>
+                <span class="metric">16.9% CAGR</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            Apache X Clean | Competitive Intelligence System<br>
+            Next Report: February 21, 2025 at 9:00 AM CT
+        </div>
+    </div>
+</body>
+</html>

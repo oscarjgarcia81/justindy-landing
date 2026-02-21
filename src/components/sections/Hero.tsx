@@ -3,8 +3,25 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronRight, Search } from 'lucide-react'
 import Link from 'next/link'
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 export default function Hero() {
+  const [searchQuery, setSearchQuery] = useState('')
+  const router = useRouter()
+
+  const handleSearch = () => {
+    if (searchQuery.trim()) {
+      router.push(`/get-started?automation=${encodeURIComponent(searchQuery.trim())}`)
+    }
+  }
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleSearch()
+    }
+  }
+
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 px-6 lg:px-8">
       {/* Content */}
@@ -33,10 +50,19 @@ export default function Hero() {
               <div className="relative flex items-center">
                 <input
                   type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={handleKeyDown}
                   placeholder="What do you need automated?"
-                  className="w-full px-6 py-4 bg-[#1A1A1A] border border-white/10 rounded-full text-white placeholder-[#666666] focus:outline-none focus:border-white/30 transition-colors pr-12"
+                  className="w-full px-6 py-4 bg-[#1A1A1A] border border-white/10 rounded-full text-white placeholder-[#666666] focus:outline-none focus:border-white/30 transition-colors pr-14"
                 />
-                <Search className="absolute right-4 w-5 h-5 text-[#666666]" />
+                <button
+                  onClick={handleSearch}
+                  className="absolute right-3 p-2 hover:bg-white/10 rounded-full transition-colors"
+                  aria-label="Search"
+                >
+                  <Search className="w-5 h-5 text-[#666666] hover:text-white transition-colors" />
+                </button>
               </div>
             </motion.div>
 

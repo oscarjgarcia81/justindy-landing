@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Competitor Intelligence Report - {{DATE}}</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+            background: #ffffff; 
+            color: #000000;
+            line-height: 1.6;
+        }
+        .container { 
+            background: white; 
+            border: 1px solid #000000;
+            padding: 40px; 
+        }
+        .header { 
+            border-bottom: 3px solid #000000; 
+            padding-bottom: 20px; 
+            margin-bottom: 30px; 
+        }
+        .header h1 { 
+            color: #000000; 
+            margin: 0; 
+            font-size: 28px; 
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .header .meta { 
+            color: #333333; 
+            margin-top: 10px; 
+            font-size: 13px; 
+            font-weight: 500;
+        }
+        .section { 
+            margin-bottom: 35px; 
+        }
+        .section h2 { 
+            color: #000000; 
+            font-size: 16px; 
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #000000;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+        .section h3 {
+            color: #000000;
+            font-size: 14px;
+            font-weight: 700;
+            margin: 20px 0 10px 0;
+            text-transform: uppercase;
+        }
+        .alert { 
+            border-left: 4px solid #000000; 
+            padding: 15px 20px; 
+            margin: 15px 0; 
+            background: #f5f5f5;
+            font-weight: 600;
+        }
+        .alert.high { 
+            border-color: #cc0000; 
+            background: #ffeeee;
+            color: #cc0000;
+        }
+        .alert.medium { 
+            border-color: #ffcc00; 
+            background: #fffbe6;
+            color: #997a00;
+        }
+        .alert.low { 
+            border-color: #00aa00; 
+            background: #eeffee;
+            color: #006600;
+        }
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin: 15px 0; 
+            font-size: 13px;
+            border: 1px solid #000000;
+        }
+        th, td { 
+            padding: 12px; 
+            text-align: left; 
+            border-bottom: 1px solid #cccccc;
+            border-right: 1px solid #cccccc;
+        }
+        th { 
+            background: #000000; 
+            font-weight: 700; 
+            color: #ffffff;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+        }
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .opportunity { 
+            color: #00aa00; 
+            font-weight: 700; 
+        }
+        .threat { 
+            color: #cc0000; 
+            font-weight: 700; 
+        }
+        .neutral {
+            color: #666666;
+            font-weight: 600;
+        }
+        .trend { 
+            display: flex; 
+            align-items: flex-start; 
+            gap: 15px; 
+            margin: 12px 0; 
+            padding: 15px; 
+            border: 1px solid #dddddd;
+            background: #fafafa;
+        }
+        .trend strong {
+            color: #000000;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+        .metric { 
+            display: inline-block; 
+            padding: 6px 14px; 
+            background: #000000; 
+            color: #ffffff; 
+            font-size: 11px; 
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 3px;
+        }
+        .competitor-card { 
+            border: 1px solid #000000; 
+            padding: 20px; 
+            margin: 15px 0; 
+            background: #ffffff;
+        }
+        .competitor-card h4 { 
+            margin: 0 0 8px 0; 
+            color: #000000; 
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .competitor-card .location { 
+            color: #555555; 
+            font-size: 12px; 
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .competitor-card p {
+            font-size: 13px;
+            margin: 8px 0;
+        }
+        .footer { 
+            margin-top: 40px; 
+            padding-top: 20px; 
+            border-top: 2px solid #000000; 
+            color: #666666; 
+            font-size: 11px; 
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+        .highlight { 
+            background: #ffffcc; 
+            padding: 2px 6px; 
+            font-weight: 700;
+        }
+        .threat-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .threat-badge.high {
+            background: #cc0000;
+            color: #ffffff;
+        }
+        .threat-badge.medium {
+            background: #ffcc00;
+            color: #000000;
+        }
+        .threat-badge.low {
+            background: #00aa00;
+            color: #ffffff;
+        }
+        ul {
+            margin: 10px 0 10px 20px;
+        }
+        li {
+            margin: 8px 0;
+            font-size: 13px;
+        }
+        ol {
+            margin: 10px 0 10px 20px;
+        }
+        ol li {
+            font-weight: 700;
+            margin: 15px 0;
+        }
+        ol li ul {
+            font-weight: normal;
+            margin-top: 8px;
+        }
+        .divider {
+            border-top: 1px solid #dddddd;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Competitor Intelligence Report</h1>
+            <div class="meta">
+                Industry: Drone Soft-Wash Exterior Cleaning | Region: Midwest/Chicago | Date: {{DATE}} | Period: {{PERIOD}}
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Executive Summary</h2>
+            <div class="alert {{THREAT_LEVEL}}">
+                Threat Level: {{THREAT_LEVEL_TEXT}}
+            </div>
+            {{EXECUTIVE_SUMMARY}}
+        </div>
+
+        <div class="section">
+            <h2>Your Company Intelligence - Apache X Clean</h2>
+            <div class="alert low">
+                Monitoring all mentions, media coverage, and digital footprint for Apache X Clean
+            </div>
+            {{APACHE_X_CLEAN_INTELLIGENCE}}
+        </div>
+
+        <div class="section">
+            <h2>Competitor Activity</h2>
+            {{COMPETITOR_CARDS}}
+            
+            <div class="divider"></div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Company</th>
+                        <th>Location</th>
+                        <th>Key Development</th>
+                        <th>Impact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{COMPETITOR_ROWS}}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>New Entrants & Emerging Threats</h2>
+            <p><em>Companies newly identified or announcing potentially threatening developments:</em></p>
+            {{NEW_ENTRANTS}}
+        </div>
+
+        <div class="section">
+            <h2>Industry Trends & Developments</h2>
+            {{TRENDS_LIST}}
+        </div>
+
+        <div class="section">
+            <h2>Opportunities & Threats</h2>
+            
+            <h3>Opportunities</h3>
+            {{OPPORTUNITIES}}
+            
+            <h3>Threats</h3>
+            {{THREATS}}
+        </div>
+
+        <div class="section">
+            <h2>Recommended Actions</h2>
+            {{ACTIONS}}
+        </div>
+
+        <div class="section">
+            <h2>Market Intelligence Metrics</h2>
+            {{METRICS}}
+        </div>
+
+        <div class="footer">
+            Apache Clean | Competitive Intelligence System<br>
+            Next Report: {{NEXT_REPORT_DATE}}
+        </div>
+    </div>
+</body>
+</html>

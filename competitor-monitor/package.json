@@ -1,0 +1,16 @@
+{
+  "name": "competitor-monitor-drone-cleaning",
+  "version": "1.0.0",
+  "description": "Daily competitor intelligence for drone soft-wash industry",
+  "type": "module",
+  "scripts": {
+    "test": "node test-report.js",
+    "generate": "node generate-report.js"
+  },
+  "config": {
+    "industry": "Drone Soft-Wash Exterior Cleaning",
+    "region": "Midwest / Chicago",
+    "schedule": "0 9 * * *",
+    "timezone": "America/Chicago"
+  }
+}

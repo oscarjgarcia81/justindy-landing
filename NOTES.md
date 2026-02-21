@@ -8,7 +8,7 @@ Quick notes, thoughts, reminders, and action items.
 
 | Date | Note | Status |
 |------|------|--------|
-| 2026-02-21 | Find and send Mom old MidAmerican Energy account details | ⏰ Due tonight |
+| | | |
 
 ---
 

@@ -8,7 +8,8 @@ Quick notes, thoughts, reminders, and action items.
 
 | Date | Note | Status |
 |------|------|--------|
-| | | |
+| 2026-02-21 | Find and send Mom old MidAmerican Energy account details | ⏰ Due tonight |
+| 2026-03-02 | Buy clothes for Europe trip (Ireland, Italy, Marrakech outfits) | 📅 Due March 2nd |
 
 ---
 
@@ -47,4 +48,4 @@ Quick notes, thoughts, reminders, and action items.
 
 ---
 
-*Last Updated: 2026-02-21 09:56*
+*Last Updated: 2026-02-21 10:05*

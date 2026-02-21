@@ -315,16 +315,293 @@ Comprehensive guide to AI tools, automation platforms, and implementation patter
 
 ---
 
+## Part 8: Document Processing & OCR
+
+### OCR Tools Comparison
+
+| Tool | Best For | Accuracy | Pricing | Notes |
+|------|----------|----------|---------|-------|
+| **AWS Textract** | Invoices, forms, tables | High | ~$0.001-0.015/page | Best for structured documents |
+| **Google Document AI** | General purpose OCR | High | ~$0.0015-0.05/page | Strong Google Workspace integration |
+| **Azure Document Intelligence** | Forms, custom models | Very High | ~$0.001-0.05/page | Best custom model training |
+| **GPT-4o Vision** | Unstructured docs, analysis | High | Per token (~$0.005-0.015/page) | Simplest integration |
+
+### When to Use Each
+
+**AWS Textract:**
+- Invoice processing
+- Receipt extraction
+- Form data capture
+- Table extraction
+- High-volume batch processing
+
+**Google Document AI:**
+- Mixed document types
+- Google Workspace integration
+- Multi-language support
+- Industry-specific processors (lending, procurement)
+
+**Azure Document Intelligence:**
+- Custom form models needed
+- Highest accuracy requirements
+- Microsoft ecosystem
+- Healthcare/financial compliance
+
+**GPT-4o Vision:**
+- Quick prototypes
+- Unstructured document understanding
+- Combined OCR + analysis in one call
+- Low volume (<1000 docs/month)
+
+### Document Processing Workflow Pattern
+
+```
+[Document Upload] 
+  → [OCR Extraction] 
+  → [Data Validation] 
+  → [AI Enhancement] 
+  → [Database/CRM Update] 
+  → [Notification]
+```
+
+**Example: Invoice Processing**
+1. **Trigger:** Email with PDF attachment or upload to Google Drive
+2. **OCR:** AWS Textract extracts invoice data
+3. **Validation:** Check required fields present
+4. **Enhancement:** GPT-4o categorizes expense type
+5. **Storage:** Update Airtable/QuickBooks
+6. **Alert:** Notify finance team in Slack
+
+### Common Document Automation Use-Cases
+
+**1. Invoice Processing**
+- Extract vendor, amount, line items, due date
+- Match to purchase orders
+- Route for approval based on amount
+- Schedule payment
+
+**2. Contract Analysis**
+- Extract key terms (renewal dates, termination clauses)
+- Compare to standard templates
+- Flag risky language
+- Store in contract management system
+
+**3. Resume Screening**
+- Parse candidate information
+- Extract skills, experience, education
+- Score against job requirements
+- Route to hiring manager
+
+**4. Expense Report Processing**
+- Extract receipts from photos
+- Categorize expenses
+- Match to corporate policies
+- Reimbursement workflow
+
+**5. Customer Form Processing**
+- Insurance claims
+- Loan applications
+- Onboarding documents
+- Survey responses
+
+---
+
+## Part 9: Communication Automation
+
+### Email Automation Tools
+
+| Tool | Best For | Pricing | Key Feature |
+|------|----------|---------|-------------|
+| **Smartlead** | Cold email at scale | $39-249/mo | Unlimited warmup, deliverability focus |
+| **Instantly** | Cold outreach | $37-297/mo | AI personalization, unibox |
+| **Reply.io** | Sales sequences | $60-90/mo/user | Multi-channel (email + LinkedIn) |
+| **HubSpot Sequences** | Inbound nurture | Included in CRM | Native CRM integration |
+| **Mailchimp** | Newsletter/marketing | Free-$299/mo | Easy templates, good free tier |
+| **ActiveCampaign** | Advanced automation | $29-149/mo | Complex conditional logic |
+
+### Chatbot Platforms
+
+**For Customer Support:**
+- **Intercom:** Best-in-class, expensive ($74+/mo)
+- **Zendesk:** Enterprise focus, integrated tickets
+- **Tidio:** Affordable ($29/mo), good for SMBs
+- **Chatbase:** AI-powered, train on your docs ($19/mo)
+
+**For Lead Generation:**
+- **ManyChat:** Facebook/Instagram focus ($15/mo)
+- **Chatfuel:** Multi-platform, AI features
+- **n8n + OpenAI:** DIY solution, most flexible
+
+### SMS/WhatsApp Automation
+
+**Tools:**
+- **Twilio:** Most flexible, pay-per-message
+- **MessageBird:** Global reach, good pricing
+- **WhatsApp Business API:** Official channel, requires Meta approval
+- **Sakari:** SMS-first, easy setup
+
+**Use-Cases:**
+- Appointment reminders
+- Delivery notifications
+- Two-factor authentication
+- Emergency alerts
+
+---
+
+## Part 10: Advanced Implementation Patterns
+
+### The Event-Driven Architecture
+
+Build automations that respond to events rather than running on schedules:
+
+```
+Event Sources:
+- Webhooks (instant triggers)
+- API polling (every X minutes)
+- Database changes
+- File uploads
+- Email arrivals
+
+Processing:
+- Queue management for reliability
+- Error handling with retries
+- Dead letter queue for failures
+- Logging for audit trails
+
+Actions:
+- Database updates
+- API calls
+- Notifications
+- File operations
+```
+
+### Multi-Step Approval Workflows
+
+**Pattern for Document/Expense Approval:**
+
+```
+[Submission] 
+  → [Manager Review] 
+  → [If >$X: Director Approval] 
+  → [If >$Y: VP Approval] 
+  → [Finance Processing] 
+  → [Archive + Notify]
+```
+
+**Tools:**
+- n8n for logic and routing
+- Airtable/Notion for tracking
+- Slack for notifications
+- DocuSign/HelloSign for signatures
+
+### Error Handling Best Practices
+
+**The Defensive Automation Pattern:**
+
+1. **Validate inputs before processing**
+2. **Set timeouts on external API calls**
+3. **Implement exponential backoff for retries**
+4. **Log all errors with context**
+5. **Alert on failures (but not too noisily)**
+6. **Design for idempotency** (safe to run multiple times)
+
+**Error Notification Strategy:**
+- Immediate alert for critical failures
+- Digest for non-critical errors (daily summary)
+- Escalation if errors persist
+
+---
+
+## Part 11: Industry-Specific Playbooks
+
+### E-Commerce Automation
+
+**Common Workflows:**
+- Order → Inventory update → Shipping notification
+- Abandoned cart recovery sequence
+- Review request after delivery
+- Inventory alerts when low stock
+- Price monitoring (competitor tracking)
+
+**Tools:** Shopify, WooCommerce, Klaviyo, n8n
+
+### Real Estate Automation
+
+**Common Workflows:**
+- Lead capture → CRM → Agent assignment
+- Property alert emails (new listings matching criteria)
+- Appointment scheduling + reminders
+- Document collection for closing
+- Client milestone celebrations (anniversary of purchase)
+
+**Tools:** Follow Up Boss, Propertybase, Calendly, DocuSign
+
+### Professional Services (Consulting/Agency)
+
+**Common Workflows:**
+- Proposal → Contract → Invoice sequence
+- Time tracking → Invoicing
+- Client onboarding sequence
+- Project milestone notifications
+- Retainer renewal reminders
+
+**Tools:** HubSpot, PandaDoc, Harvest, n8n
+
+### Healthcare (Non-PHI)
+
+**Common Workflows:**
+- Appointment reminders (SMS + email)
+- Patient satisfaction surveys
+- Billing follow-ups
+- Referral coordination
+- General communication (not clinical)
+
+**Note:** Avoid HIPAA-regulated data in most automation tools. Use compliant platforms like Aptible or Datica for PHI.
+
+---
+
 ## Research Sources
 
+### Workflow Automation
 - Digidop: n8n vs Make vs Zapier comparison
-- IntuitionLabs: LLM API Pricing 2025
-- LiquidMetal AI: Vector Database Comparison
 - Hostinger: n8n workflow examples
+- n8n.io: Community workflows database
+
+### AI Models & APIs
+- IntuitionLabs: LLM API Pricing 2025
+- CloudIDR: Live LLM pricing comparison
+- OpenAI, Anthropic, Google official documentation
+
+### Vector Databases
+- LiquidMetal AI: Vector Database Comparison
+- Digital One Agency: RAG Database Guide
+- Firecrawl: Vector Database Comparison 2026
+
+### Web Scraping
 - Browserless: Web scraping tools guide
+- PromptCloud: Playwright vs Puppeteer
+- Browserbase: Developer scraping guide
+
+### OCR & Document Processing
+- AWS Textract Documentation
+- Google Document AI Guides
+- BusinessWareTech: Invoice extraction benchmark
+- MarkTechPost: OCR Model Comparison 2025
+
+### CRM & Business Tools
 - Efficient.app: HubSpot vs Airtable CRM comparison
+- Whalesync: Airtable vs Notion Guide
+- Folk.app: CRM Comparison
+
+### Email & Communication
+- Smartlead: Cold email best practices
+- Automation Strategy Group: B2B Email Workflows
+
+### Competitive Intelligence
+- Kompyte: CI Tools Comparison
+- Crayon: Platform Documentation
 
 ---
 
 *Last Updated: February 21, 2026*
-*Status: Core tools documented — Continue with advanced patterns and specific industry implementations*
+*Status: Comprehensive — Covers platforms, AI models, databases, scraping, OCR, communication, patterns, and industry playbooks*

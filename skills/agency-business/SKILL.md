@@ -209,14 +209,249 @@ Worth a 15-min call to see if there's a fit?
 
 ---
 
+## Part 6: Sales Psychology & Proposal Writing
+
+### Pricing Psychology Tactics
+
+**1. Price Anchoring**
+Present a higher-priced option first to make subsequent options feel more affordable.
+
+Example:
+- ❌ "Our service costs $5,000"
+- ✅ "Enterprise solutions start at $25,000, but for companies your size, we have a $5,000 implementation that delivers the core value"
+
+**2. Good-Better-Best Pricing**
+Create three tiers to guide prospects to the middle option:
+- **Basic:** $3,000 (bare minimum, makes others look valuable)
+- **Professional:** $8,000 (target option, best value positioning)
+- **Enterprise:** $20,000 (anchors high, captures big spenders)
+
+**3. Value Framing**
+Always frame price relative to value created, not hours worked.
+
+Before: "20 hours × $150/hr = $3,000"
+After: "You'll save 15 hours/week. At $75/hr loaded cost, that's $58,500/year. Investment is $8,000 — ROI in 5 weeks."
+
+### Proposal Structure That Converts
+
+**The 6-Section Winning Proposal:**
+
+1. **Executive Summary** (1 page)
+   - Problem statement in their words
+   - Promised outcome
+   - Investment summary
+
+2. **Current State Analysis**
+   - What you discovered in the audit
+   - Cost of inaction (quantified)
+   - Competitor advantages they're missing
+
+3. **Proposed Solution**
+   - Specific automations/workflows
+   - Tools/platforms involved
+   - Timeline with milestones
+
+4. **Investment & ROI**
+   - Price with payment terms
+   - ROI calculation
+   - Risk reversal (guarantee/pilot option)
+
+5. **Case Studies**
+   - 2-3 relevant examples
+   - Before/after metrics
+   - Client quotes
+
+6. **Next Steps**
+   - Simple approval process
+   - Start date
+   - Your contact for questions
+
+### Objection Handling
+
+**"It's too expensive"**
+→ "I understand. Let's look at what this is costing you not to do it. [Calculate pain]. The question isn't whether you can afford $8K — it's whether you can afford to keep losing $15K/month to this problem."
+
+**"We need to think about it"**
+→ "Of course. What specific questions do you need answered? Often when clients say this, there's one concern we haven't addressed."
+
+**"We can do this in-house"**
+→ "You absolutely could. The question is: should you? Your team's expertise is in [their core business], not automation architecture. This is a 40-hour project for us, would probably take your team 2-3 weeks to research and build. What's that time worth?"
+
+---
+
+## Part 7: Email Automation & Lead Nurturing
+
+### The B2B Nurture Sequence (7 Emails)
+
+**Email 1: Welcome (Immediate)**
+Subject: "Quick question about [Company]"
+Content: Reference their specific situation, mention one insight from your research
+
+**Email 2: Value/Education (Day 2)**
+Subject: "How [Similar Company] solved [problem]"
+Content: Case study with specific results
+
+**Email 3: Social Proof (Day 4)**
+Subject: "What [Client] said about working with us"
+Content: Testimonial + brief story
+
+**Email 4: Address Objections (Day 7)**
+Subject: "The real cost of waiting"
+Content: ROI calculator, cost of delay
+
+**Email 5: Value Add (Day 10)**
+Subject: "Free resource: [Automation Checklist/Guide]"
+Content: Helpful content, no pitch
+
+**Email 6: Soft Pitch (Day 14)**
+Subject: "Is this still a priority for Q2?"
+Content: Direct but low-pressure ask
+
+**Email 7: Breakup (Day 21)**
+Subject: "Should I close your file?"
+Content: Polite final attempt, leave door open
+
+### Behavioral Triggers
+
+Automate based on:
+- **Email opens:** Increase frequency if engaged
+- **Link clicks:** Trigger sales notification
+- **Pricing page visits:** Priority follow-up within 2 hours
+- **Content downloads:** Add to specific nurture track
+
+### Tools for Email Automation
+
+- **Smartlead:** Cold email infrastructure, warmup, deliverability
+- **HubSpot:** All-in-one CRM + email (best for B2B)
+- **ActiveCampaign:** Advanced automation sequences
+- **Mailchimp:** Simple, affordable for small lists
+- **n8n/Make:** Build custom email logic connected to your stack
+
+---
+
+## Part 8: Client Retention & Expansion
+
+### The Retention Formula
+
+**Agencies with strong retention focus on:**
+1. **Proactive communication** (not reactive)
+2. **Measurable results** (report on ROI monthly)
+3. **Strategic advisor positioning** (not just vendor)
+4. **Quarterly business reviews** (QBRs)
+
+### Quarterly Business Review (QBR) Template
+
+**1. Results Recap (15 min)**
+- Metrics automated vs manual
+- Time/cost savings achieved
+- ROI calculation
+
+**2. New Opportunities (15 min)**
+- "What new manual processes are eating time?"
+- Industry trends they should know
+- Competitor moves (if relevant)
+
+**3. Roadmap (15 min)**
+- Planned improvements
+- Expansion opportunities
+- Technology updates
+
+**4. Feedback (5 min)**
+- What's working?
+- What's frustrating?
+- Referral ask
+
+### Expansion Strategies
+
+**The Natural Evolution Approach:**
+Don't sell — identify gaps during QBRs:
+
+- "I noticed your sales team is still doing [manual task]. We could automate that too."
+- "Your competitor just launched [feature]. Want to discuss how to respond?"
+- "We're seeing 80% of our clients in your industry add [automation type]. Interested?"
+
+**Expansion Revenue Targets:**
+- Aim for 20-30% annual revenue growth from existing clients
+- Introduce new service tier at 6-month mark
+- Annual contract upgrades with 10-15% price increase
+
+### Warning Signs of Churn
+
+- Declining meeting attendance
+- Delayed payments
+- Reduced communication
+- New decision-makers without introduction
+- "Let's pause for now"
+
+**Response:** Immediate call to diagnose + offer value-add session
+
+---
+
+## Part 9: Competitive Intelligence (Service Offering)
+
+### Tools Comparison
+
+| Tool | Best For | Pricing | Notes |
+|------|----------|---------|-------|
+| **Crayon** | Sales enablement, real-time intel | $$$ | Strong Slack integration |
+| **Klue** | Curated intelligence, battlecards | $$$ | Sales team focused |
+| **Kompyte** | Website monitoring, AI insights | $$$ | Most powerful AI features |
+| **DIY (n8n)** | Custom monitoring | $ | Requires setup but flexible |
+
+### DIY Competitive Intelligence Stack
+
+For offering CI as a service without expensive tools:
+
+**Monitoring:**
+- Playwright/Puppeteer for website scraping
+- RSS feeds for blog/news mentions
+- Google Alerts (free tier)
+- Social media APIs
+
+**Analysis:**
+- OpenAI for summarization
+- Airtable for data organization
+- n8n for automation
+
+**Delivery:**
+- Weekly email reports
+- Slack alerts for urgent changes
+- Monthly strategic brief
+
+### CI Service Pricing
+
+- **Basic Monitoring:** $1,500/month (3 competitors, weekly reports)
+- **Strategic Intelligence:** $3,500/month (5 competitors, real-time alerts, battlecards)
+- **Custom Research:** $5,000+/project (deep dives, market analysis)
+
+---
+
 ## Research Sources
 
+### Agency Business Strategy
 - Madgicx: "How to Start an AI Agency in 2025"
 - Medium: "$30K/Month AI Automation Agency Blueprint"
 - DesignRush: AI Agency Best Practices
 - Digital Agency Network: AI Automation Agency Guide
+- Ravetree: "Master Client Retention"
+- AgencyAnalytics: "8 Client Retention Strategies"
+
+### Sales Psychology
+- Simon-Kucher: "Price Anchoring"
+- B2BRocket: "Psychology of Pricing Strategies"
+- Donemaker: "B2B Buyer Psychology 2025"
+
+### Email Automation
+- Smartlead: "7 Lead Nurturing Email Sequences"
+- Automation Strategy Group: "B2B Email Automation Workflows"
+- Arkesel: "B2B Email Marketing Best Practices"
+
+### Competitive Intelligence
+- Kompyte: "Top Competitive Intelligence Tools"
+- Crayon: CI Platform Documentation
+- Klue: Competitive Enablement Resources
 
 ---
 
 *Last Updated: February 21, 2026*
-*Research Status: Part 1 Complete — Continue with advanced sales psychology and case studies*
+*Research Status: Complete — Covers business model, pricing, acquisition, sales psychology, retention, and CI services*

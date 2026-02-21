@@ -15,7 +15,12 @@ Quick notes, thoughts, reminders, and action items.
 
 ## 📝 Undated Notes (Reminders)
 
-- **BUSINESS MODEL (Internal Use):** 3-tier service structure — Cloud-Based (managed), Hybrid (client infra + my management), In-Office AI System (premium white-glove: dedicated Mac Mini, full config, on-site training, 90-day support). Pricing: Cloud ~$2K/mo, Hybrid ~$3.5K/mo, In-Office ~$8.5K one-time. DO NOT put pricing on website — keep site consultation-focused. Selling point: I'm their AI Integration Specialist — ongoing knowledge, answers, and tailored service. (Updated 2026-02-21) 
+- **BUSINESS MODEL (Current — 2 Tier):**
+  1. **Services** (Primary): $2K-5K/mo — Fully managed automation on my infrastructure. Client gets results, I handle everything.
+  2. **In-House AI System** (Premium): $8K-15K one-time — Dedicated Mac Mini delivered, fully configured, on-site training, 90-day support. Optional ongoing maintenance retainer.
+  **Selling Point:** I'm their AI Integration Specialist — ongoing knowledge, answers, and tailored service. NOT a vendor. (Updated 2026-02-21)
+
+- **CLIENT COUNT:** 1 | **PHASE:** In-House / Solo | **NEXT MILESTONE:** 6 clients → Evaluate scaling strategy | **CURRENT SETUP:** Managing all automations from my Mac Mini 
 
 ---
 

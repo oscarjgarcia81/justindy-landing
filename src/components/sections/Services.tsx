@@ -42,7 +42,7 @@ export default function Services() {
         </motion.p>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -51,20 +51,20 @@ export default function Services() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -5 }}
-              className="group p-6 rounded-2xl bg-[#1A1A1A] border border-white/5 hover:border-white/10 transition-all duration-300"
+              className="group p-3 md:p-6 rounded-xl md:rounded-2xl bg-[#1A1A1A] border border-white/5 hover:border-white/10 transition-all duration-300"
             >
               {/* Icon */}
-              <div className="w-12 h-12 rounded-xl bg-[#0A0A0A] flex items-center justify-center mb-5 group-hover:bg-[#2A2A2A] transition-colors">
-                <service.icon className="w-6 h-6 text-white" />
+              <div className="w-8 h-8 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-[#0A0A0A] flex items-center justify-center mb-3 md:mb-5 group-hover:bg-[#2A2A2A] transition-colors">
+                <service.icon className="w-4 h-4 md:w-6 md:h-6 text-white" />
               </div>
 
               {/* Title */}
-              <h3 className="text-white font-semibold text-lg mb-3">
+              <h3 className="text-white font-semibold text-sm md:text-lg mb-1 md:mb-3">
                 {service.title}
               </h3>
 
               {/* Description */}
-              <p className="text-[#AAAAAA] text-sm leading-relaxed">
+              <p className="text-[#AAAAAA] text-xs md:text-sm leading-relaxed">
                 {service.description}
               </p>
             </motion.div>

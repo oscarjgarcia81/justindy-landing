@@ -42,7 +42,7 @@ export default function WhyMe() {
         </motion.p>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
@@ -56,18 +56,18 @@ export default function WhyMe() {
               <motion.div
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.2 }}
-                className="w-14 h-14 rounded-full bg-[#1A1A1A] flex items-center justify-center mx-auto mb-5 border border-white/5"
+                className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-[#1A1A1A] flex items-center justify-center mx-auto mb-3 md:mb-5 border border-white/5"
               >
-                <feature.icon className="w-6 h-6 text-white" />
+                <feature.icon className="w-4 h-4 md:w-6 md:h-6 text-white" />
               </motion.div>
 
               {/* Title */}
-              <h3 className="text-white font-semibold text-base mb-2">
+              <h3 className="text-white font-semibold text-sm md:text-base mb-1 md:mb-2">
                 {feature.title}
               </h3>
 
               {/* Description */}
-              <p className="text-[#888888] text-sm leading-relaxed">
+              <p className="text-[#888888] text-xs md:text-sm leading-relaxed">
                 {feature.description}
               </p>
             </motion.div>
